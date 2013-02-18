@@ -145,31 +145,6 @@ Caracs::Caracs()
 	layoutStats->addWidget(c_cha_mod,13,2);
 	layoutStats->addWidget(c_cha_score_tmp,13,3);
 	layoutStats->addWidget(c_cha_mod_tmp,13,4);
-		/*/Réglage des tailles
-	c_for_score->setFixedWidth(30);
-	c_for_mod->setFixedWidth(30);
-	c_for_score_tmp->setFixedWidth(30);
-	c_for_mod_tmp->setFixedWidth(30);
-	c_dex_score->setFixedWidth(30);
-	c_dex_mod->setFixedWidth(30);
-	c_dex_score_tmp->setFixedWidth(30);
-	c_dex_mod_tmp->setFixedWidth(30);
-	c_con_score->setFixedWidth(30);
-	c_con_mod->setFixedWidth(30);
-	c_con_score_tmp->setFixedWidth(30);
-	c_con_mod_tmp->setFixedWidth(30);
-	c_int_score->setFixedWidth(30);
-	c_int_mod->setFixedWidth(30);
-	c_int_score_tmp->setFixedWidth(30);
-	c_int_mod_tmp->setFixedWidth(30);
-	c_sag_score->setFixedWidth(30);
-	c_sag_mod->setFixedWidth(30);
-	c_sag_score_tmp->setFixedWidth(30);
-	c_sag_mod_tmp->setFixedWidth(30);
-	c_cha_score->setFixedWidth(30);
-	c_cha_mod->setFixedWidth(30);
-	c_cha_score_tmp->setFixedWidth(30);
-	c_cha_mod_tmp->setFixedWidth(30);*/
 	
 	//Création des labels
 	l_carac = new QLabel("Caracs");
