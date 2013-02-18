@@ -508,6 +508,9 @@ void Caracs::retraitClasse()
 		layoutClasses->removeWidget(c_classe[nbClasses-1]);
 		layoutClasses->removeWidget(c_niveau[nbClasses-1]);
 		
+		c_classe[nbClasses-1]->deleteLater();
+		c_niveau[nbClasses-1]->deleteLater();
+		
 		nbClasses--;
 	
 		c_classe.pop_back();
