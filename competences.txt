@@ -1,0 +1,64 @@
+#Syntaxe:
+#NomCompétence
+#	I si la compétence est innée, N sinon
+#	INT/CON/DEX/SAG/CHA/FOR selon la stat liée à la compétence
+#
+#La tabulation devant les lignes 2 et 3 est obligatoire
+#Les # indiquent une ligne de commentaires, le # doit être le tout premier caractère de la ligne
+#Respecter l'ordre alphabétique n'est pas obligatoire, bien que préférable
+#
+#
+Acrobaties
+	N
+	DEX
+Art de la magie
+	N
+	INT
+Artisanat
+	I
+	INT
+Bluff
+	I
+	CHA
+Concentration
+	I
+	CON
+Connaissances
+	N
+	INT
+Contrefaçon
+	I
+	INT
+Crochetage
+	N
+	DEX
+Decryptage
+	N
+	INT
+Deguisement
+	I
+	CHA
+Deplacement silencieux
+	I
+	DEX
+Desamorçage/sabotage
+	N
+	INT
+Detection
+	I
+	SAG
+Diplomatie
+	I
+	CHA
+Discretion
+	I
+	DEX
+Dressage
+	N
+	CHA
+Equilibre
+	I
+	DEX
+Equitation
+	I
+	DEX
