@@ -7,6 +7,7 @@ class RolePlay: public QWidget
 {
 private:
 	QGridLayout* layoutApparence;
+	QVBoxLayout* layout;
 
 	//Partie apparence
 	QLineEdit* c_age;
@@ -25,6 +26,7 @@ private:
 	QLabel* l_cheveux;
 	QLabel* l_peau;
 	
+	QTextEdit* zoneBackground;
 public:
 	RolePlay();
 };

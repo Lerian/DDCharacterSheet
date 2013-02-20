@@ -3,6 +3,7 @@
 RolePlay::RolePlay()
 {
 	layoutApparence = new QGridLayout();
+	layout = new QVBoxLayout(this);
 
 	//Création des champs
 	c_age = new QLineEdit();
@@ -49,5 +50,9 @@ RolePlay::RolePlay()
 	layoutApparence->addWidget(l_cheveux,2,0);
 	layoutApparence->addWidget(l_peau,2,2);
 	
-	this->setLayout(layoutApparence);
+	zoneBackground = new QTextEdit();
+	
+	layout->addLayout(layoutApparence);
+	layout->addWidget(zoneBackground);
+	
 }
