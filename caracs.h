@@ -20,11 +20,12 @@ private:
 	
 	//Informations
 	int nbClasses;
+	int lvlMax;
 	
 	QLineEdit* c_nom;
 	QLineEdit* c_joueur;
 	std::vector<QComboBox*> c_classe;
-	std::vector<QLineEdit*> c_niveau;
+	std::vector<QSpinBox*> c_niveau;
 	QComboBox* c_race;
 	QComboBox* c_alignement;
 	QComboBox* c_divinite;
