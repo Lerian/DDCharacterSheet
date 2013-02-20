@@ -18,6 +18,6 @@ MainWindow::MainWindow()
 	menuOnglets->addTab(ongletRP,"RolePlay");
 	
 	this->setCentralWidget(menuOnglets);
-	this->setWindowIcon(QIcon("icone.png"));
+	this->setWindowIcon(QIcon("Ressources/icone.png"));
 	this->setWindowTitle("Feuille de personnage D&D 3.5");
 }

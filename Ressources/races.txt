@@ -1,0 +1,12 @@
+#Syntaxe:
+#Un nom de race par ligne
+#Laisser une ligne vide pour permettre de ne pas choisir de race (la 1ère de préférence)
+#Les # indiquent une ligne de commentaires, le # doit être le tout premier caractère de la ligne
+#
+#
+
+Demi-elfe
+Elfe
+Humain
+Nain
+Orque
