@@ -57,7 +57,7 @@ void Competences::setListCompetences()
 	QStringList listeInnee;
 	QStringList listeStat;
 
-	QFile file("competences.txt");
+	QFile file("Ressources/competences.txt");
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
 		return;
 

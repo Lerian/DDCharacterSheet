@@ -14,6 +14,7 @@ Caracs::Caracs()
 // Partie Informations
 	
 	nbClasses = 0;
+	lvlMax = 30;
 	
 	//Création des champs
 	c_nom = new QLineEdit();
@@ -145,7 +146,7 @@ Caracs::Caracs()
 	layoutStats->addWidget(c_cha_mod,13,2);
 	layoutStats->addWidget(c_cha_score_tmp,13,3);
 	layoutStats->addWidget(c_cha_mod_tmp,13,4);
-	
+
 	//Création des labels
 	l_carac = new QLabel("Caracs");
 	l_score = new QLabel("Score");
@@ -415,7 +416,7 @@ Caracs::Caracs()
 
 void Caracs::setClassList(QComboBox* comboBox)
 {
-	 QFile file("classes.txt");
+	 QFile file("Ressources/classes.txt");
      if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
          return;
 
@@ -431,7 +432,7 @@ void Caracs::setClassList(QComboBox* comboBox)
 
 void Caracs::setRaceList()
 {
-	 QFile file("races.txt");
+	 QFile file("Ressources/races.txt");
      if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
          return;
 
@@ -447,7 +448,7 @@ void Caracs::setRaceList()
 
 void Caracs::setDivinityList()
 {
-	 QFile file("divinities.txt");
+	 QFile file("Ressources/divinities.txt");
      if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
          return;
 
@@ -465,11 +466,13 @@ void Caracs::ajoutClasse()
 {
 	nbClasses++;
 
-	QComboBox* classe = new QComboBox();
+	QComboBox* classe = new QComboBox(this);
 	setClassList(classe);
 	c_classe.push_back(classe);
 	
-	QLineEdit* niveau = new QLineEdit();
+	QSpinBox* niveau = new QSpinBox(this);
+	niveau->setMinimum(1);
+	niveau->setMaximum(lvlMax);
 	c_niveau.push_back(niveau);
 	
 	layoutClasses->addWidget(classe);
@@ -478,10 +481,11 @@ void Caracs::ajoutClasse()
 
 void Caracs::retraitClasse()
 {
-	if(nbClasses > 0)
+	if(nbClasses > 1)
 	{
 		layoutClasses->removeWidget(c_classe[nbClasses-1]);
 		layoutClasses->removeWidget(c_niveau[nbClasses-1]);
+		
 		
 		c_classe[nbClasses-1]->deleteLater();
 		c_niveau[nbClasses-1]->deleteLater();
@@ -489,6 +493,6 @@ void Caracs::retraitClasse()
 		nbClasses--;
 	
 		c_classe.pop_back();
-		c_niveau.pop_back();
+		c_niveau.pop_back();		
 	}
 }
