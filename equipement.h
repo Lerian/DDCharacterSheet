@@ -5,28 +5,46 @@
 
 class Equipement: public QWidget
 {
+	Q_OBJECT
+	
 private:
-	//Armes
+	QTableWidget* armes;
+	QTableWidget* armures;
+	QTableWidget* objets;
 	
-	//Armures
+	QGridLayout* layout;
+	QHBoxLayout* layoutArme;
+	QHBoxLayout* layoutArmure;
+	QHBoxLayout* layoutObjet;
 	
-	//Objets
+	QLabel* l_arme;
+	QLabel* l_armure;
+	QLabel* l_objet;
 	
-	//Argent
-	QLineEdit* c_pc;
-	QLineEdit* c_pa;
-	QLineEdit* c_po;
-	QLineEdit* c_pp;
+	QFrame* trait1Armes;
+	QFrame* trait2Armes;
+	QFrame* trait1Armures;
+	QFrame* trait2Armures;
+	QFrame* trait1Objets;
+	QFrame* trait2Objets;
 	
-	QLabel* l_pc;
-	QLabel* l_pa;
-	QLabel* l_po;
-	QLabel* l_pp;
-	
-	//Séparateurs
+	QPushButton* boutonAjoutArme;
+	QPushButton* boutonRetraitArme;
+	QPushButton* boutonAjoutArmure;
+	QPushButton* boutonRetraitArmure;
+	QPushButton* boutonAjoutObjet;
+	QPushButton* boutonRetraitObjet;
 	
 public:
 	Equipement();
+
+private slots:
+	void ajoutLigneArme();
+	void retraitLigneArme();
+	void ajoutLigneArmure();
+	void retraitLigneArmure();
+	void ajoutLigneObjet();
+	void retraitLigneObjet();
 };
 
 #endif // EQUIPEMENT_H
