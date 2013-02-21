@@ -8,6 +8,7 @@
 #include "competences.h"
 #include "dons.h"
 #include "rolePlay.h"
+#include "diceRoller.h"
 
 class MainWindow : public QMainWindow
 {
@@ -23,6 +24,10 @@ private:
 	Competences * ongletCompetences;
 	Dons * ongletDons;
 	RolePlay * ongletRP;
+	
+	// Outils de simulation de dés
+	QDockWidget* dockWidget;
+	DiceRoller* widgetDes;
 	
 public:
 	MainWindow();

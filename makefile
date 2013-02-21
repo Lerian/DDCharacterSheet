@@ -6,7 +6,7 @@ INCLUDES=-I/usr/include/qt4 -I/usr/include/qt4/QtGui
 EXEC=CharacterSheet
 
 # Complete project compilation
-all: main.o mainWindow.o competences.o caracs.o dons.o equipement.o rolePlay.o sac.o moc_caracs.o moc_mainWindow.o moc_sac.o moc_equipement.o moc_rolePlay.o
+all: main.o mainWindow.o competences.o caracs.o dons.o equipement.o rolePlay.o sac.o diceRoller.o moc_caracs.o moc_mainWindow.o moc_sac.o moc_equipement.o moc_rolePlay.o moc_diceRoller.o
 	$(CXX) $^ $(LDFLAGS) -o $(EXEC)
 	@echo ''
 	@echo '==> Compilation successfully done'
@@ -27,6 +27,9 @@ equipement.o: equipement.h equipement.cpp
 rolePlay.o: rolePlay.h rolePlay.cpp
 	moc -o moc_rolePlay.cpp $<
 	$(CXX) -c rolePlay.cpp $(CXXFLAGS) $(INCLUDES)
+diceRoller.o: diceRoller.h diceRoller.cpp
+	moc -o moc_diceRoller.cpp $<
+	$(CXX) -c diceRoller.cpp $(CXXFLAGS) $(INCLUDES)
 
 # Compilation of .cpp files that don't require the moc
 %.o: %.cpp
@@ -42,6 +45,8 @@ moc_sac.o: moc_sac.cpp
 moc_equipement.o: moc_equipement.cpp
 	$(CXX) -c $< $(CXXFLAGS) $(INCLUDES)
 moc_rolePlay.o: moc_rolePlay.cpp
+	$(CXX) -c $< $(CXXFLAGS) $(INCLUDES)
+moc_diceRoller.o: moc_diceRoller.cpp
 	$(CXX) -c $< $(CXXFLAGS) $(INCLUDES)
 
 # Removal of all files created during the compilation, excepting the final executable file

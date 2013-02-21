@@ -2,6 +2,10 @@
 
 MainWindow::MainWindow()
 {
+	this->setWindowIcon(QIcon("Ressources/icone.png"));
+	this->setWindowTitle("Feuille de personnage D&D 3.5");
+	
+	// Widget central, onglets des pages
 	menuOnglets = new QTabWidget();
 	ongletCaracs = new Caracs();
 	ongletEquipement = new Equipement();
@@ -18,6 +22,13 @@ MainWindow::MainWindow()
 	menuOnglets->addTab(ongletRP,"RolePlay");
 	
 	this->setCentralWidget(menuOnglets);
-	this->setWindowIcon(QIcon("Ressources/icone.png"));
-	this->setWindowTitle("Feuille de personnage D&D 3.5");
+	
+	//DockWidget, lanceur de dés
+	dockWidget = new QDockWidget("Dice roller", this);
+	widgetDes = new DiceRoller();
+	
+	dockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	dockWidget->setWidget(widgetDes);
+	
+	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 }
