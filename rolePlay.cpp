@@ -3,6 +3,8 @@
 RolePlay::RolePlay()
 {
 	layoutApparence = new QGridLayout();
+	layoutSeparation = new QHBoxLayout();
+	layoutOptions = new QHBoxLayout();
 	layout = new QVBoxLayout(this);
 
 	//Création des champs
@@ -50,9 +52,69 @@ RolePlay::RolePlay()
 	layoutApparence->addWidget(l_cheveux,2,0);
 	layoutApparence->addWidget(l_peau,2,2);
 	
-	zoneBackground = new QTextEdit();
+	// Création de la bande de séparation
+	ligne1 = new QFrame();
+		ligne1->setFrameStyle(QFrame::HLine | QFrame::Plain);
+	ligne2 = new QFrame();
+		ligne2->setFrameStyle(QFrame::HLine | QFrame::Plain);
+	l_background = new QLabel("Background");
+	l_background->setFixedWidth(100);
+	l_background->setAlignment(Qt::AlignCenter);
+	
+	layoutSeparation->addWidget(ligne1);
+	layoutSeparation->addWidget(l_background);
+	layoutSeparation->addWidget(ligne2);
+	
+	// Création de la bande d'option
+	mode = new QComboBox();
+	mode->addItem("Texte");
+	mode->addItem("HTML");
+	mode->addItem("Edition");
+	
+	layoutOptions->addWidget(mode);
+	
+	// Création de la partie background
+	zoneBackgroundText = new QTextEdit();
+	zoneBackgroundHtml = new QTextEdit();
+	zoneBackgroundHtml->setVisible(false);
 	
 	layout->addLayout(layoutApparence);
-	layout->addWidget(zoneBackground);
+	layout->addLayout(layoutSeparation);
+	layout->addLayout(layoutOptions);
+	layout->addWidget(zoneBackgroundText);
+	layout->addWidget(zoneBackgroundHtml);
 	
+	// Connexion des signaux/slots
+	connect(mode,SIGNAL(currentIndexChanged(const QString &)),this,SLOT(changeMode(const QString&)));
+	connect(zoneBackgroundText,SIGNAL(textChanged()),this,SLOT(updateHtmlEditionMode()));
+}
+
+void RolePlay::changeMode(const QString& text)
+{
+	if(text == "HTML")
+	{
+		QString valeur = zoneBackgroundText->toPlainText();
+		zoneBackgroundHtml->setHtml(valeur);
+		zoneBackgroundHtml->setVisible(true);
+		zoneBackgroundText->setVisible(false);
+	}
+	else if(text == "Texte")
+	{
+		zoneBackgroundHtml->setVisible(false);
+		zoneBackgroundText->setVisible(true);
+	}
+	else
+	{
+		zoneBackgroundText->setVisible(true);
+		zoneBackgroundHtml->setVisible(true);
+	}
+}
+
+void RolePlay::updateHtmlEditionMode()
+{
+	if(mode->currentText() == "Edition")
+	{
+		QString valeur = zoneBackgroundText->toPlainText();
+		zoneBackgroundHtml->setHtml(valeur);
+	}
 }

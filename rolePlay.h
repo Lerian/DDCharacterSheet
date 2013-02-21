@@ -5,8 +5,12 @@
 
 class RolePlay: public QWidget
 {
+	Q_OBJECT
+	
 private:
 	QGridLayout* layoutApparence;
+	QHBoxLayout* layoutSeparation;
+	QHBoxLayout* layoutOptions;
 	QVBoxLayout* layout;
 
 	//Partie apparence
@@ -25,10 +29,25 @@ private:
 	QLabel* l_yeux;
 	QLabel* l_cheveux;
 	QLabel* l_peau;
+
+	//Partie séparation
+	QFrame* ligne1;
+	QFrame* ligne2;
+	QLabel* l_background;
 	
-	QTextEdit* zoneBackground;
+	//Partie options
+	QComboBox* mode;
+	
+	//Partie background
+	QTextEdit* zoneBackgroundText;
+	QTextEdit* zoneBackgroundHtml;
+	
 public:
 	RolePlay();
+	
+public slots:
+	void changeMode(const QString&);
+	void updateHtmlEditionMode();
 };
 
 #endif // ROLEPLAY_H
