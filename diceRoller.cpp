@@ -22,7 +22,7 @@ DiceRoller::DiceRoller()
 	boutonD100 = new QPushButton("d100");
 	boutonClear = new QPushButton("Clear");
 	
-	avertissement = new QLabel("/!\\ Aleatoire approximatif /!\\");
+	avertissement = new QLabel("/!\\ Aléatoire approximatif /!\\");
 	
 	layoutDes->addWidget(avertissement,0,0,1,2);
 	layoutDes->addWidget(boutonD4,1,0);

@@ -14,10 +14,10 @@ MainWindow::MainWindow()
 	ongletDons = new Dons();
 	ongletRP = new RolePlay();
 	
-	menuOnglets->addTab(ongletCaracs,"Caracteristiques");
+	menuOnglets->addTab(ongletCaracs,"Caractéristiques");
 	menuOnglets->addTab(ongletEquipement,"Equipement");
-	menuOnglets->addTab(ongletSac,"Sac a dos");
-	menuOnglets->addTab(ongletCompetences,"Competences");
+	menuOnglets->addTab(ongletSac,"Sac à dos");
+	menuOnglets->addTab(ongletCompetences,"Compétences");
 	menuOnglets->addTab(ongletDons,"Dons");
 	menuOnglets->addTab(ongletRP,"RolePlay");
 	

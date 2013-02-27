@@ -55,7 +55,7 @@ Dons::Dons()
 		dons->setRowCount(2);
 		dons->setColumnCount(4);
 	liste.clear();
-	liste << "Don" << "Prerequis" << "Effets" << "Notes";
+	liste << "Don" << "Prérequis" << "Effets" << "Notes";
 	dons->setHorizontalHeaderLabels(liste);
 		
 	//Création du layout principal

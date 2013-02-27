@@ -7,7 +7,7 @@ Competences::Competences()
 
 	QStringList liste;
 	// Création des en-tête
-	liste << "De classe" << "Innee" << "Competence" << "Stat." << "Mod. compet." << "Mod. stat." << "Deg. maitrise" << "Mod. divers";
+	liste << "De classe" << "Innée" << "Compétence" << "Stat." << "Mod. compét." << "Mod. stat." << "Deg. maîtrise" << "Mod. divers";
 	table->setHorizontalHeaderLabels(liste);
 
 	nbCompetences = 0;
@@ -17,7 +17,7 @@ Competences::Competences()
 	layoutHaut = new QHBoxLayout();
 	
 	layoutPrincipal->addLayout(layoutHaut);
-	layoutHaut->addWidget(new QLabel("Points a depenser:"));
+	layoutHaut->addWidget(new QLabel("Points à dépenser:"));
 	aDepenser = new QLineEdit();
 	aDepenser->setInputMask("99");
 	aDepenser->setText("");
@@ -27,7 +27,7 @@ Competences::Competences()
 	
 	layoutHaut->addStretch();
 	
-	layoutHaut->addWidget(new QLabel("Degre de maitrise max.:"));
+	layoutHaut->addWidget(new QLabel("Degré de maîtrise max.:"));
 	degreMaitriseMaxI = new QLineEdit();
 	degreMaitriseMaxI->setInputMask("99");
 	degreMaitriseMaxI->setText("");

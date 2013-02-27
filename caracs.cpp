@@ -30,8 +30,8 @@ Caracs::Caracs()
 	l_classe = new QLabel("Classe(s):");
 	l_race = new QLabel("Race:");
 	l_alignement = new QLabel("Alignement:");
-	l_divinite = new QLabel("Divinite:");
-	l_categorieTaille = new QLabel("Categorie de taille:");
+	l_divinite = new QLabel("Divinité:");
+	l_categorieTaille = new QLabel("Catégorie de taille:");
 	
 	//Création des boutons
 	boutonAjoutClasse = new QPushButton("+");
@@ -72,11 +72,11 @@ Caracs::Caracs()
 	c_alignement->addItem("Chaotique Mauvais");
 		//Catégorie de taille
 	c_categorieTaille->addItem("");
-	c_categorieTaille->addItem("Tres petite");
+	c_categorieTaille->addItem("Très petite");
 	c_categorieTaille->addItem("Petite");
 	c_categorieTaille->addItem("Moyenne");
 	c_categorieTaille->addItem("Grande");
-	c_categorieTaille->addItem("Tres grande");
+	c_categorieTaille->addItem("Très grande");
 	
 	//Placement des labels dans le layout
 	layoutInfos->addWidget(l_nom,0,0);
@@ -207,8 +207,8 @@ Caracs::Caracs()
 	l_bba = new QLabel("BBA:");
 	l_initiative = new QLabel("Initiative:");
 	l_vitesse = new QLabel("VD:");
-	l_res_mag = new QLabel("Resist. magie:");
-	l_reduc_deg = new QLabel("Reduc. degats:");
+	l_res_mag = new QLabel("Résist. magie:");
+	l_reduc_deg = new QLabel("Réduc. dégâts:");
 	l_lutte = new QLabel("Lutte:");
 		//Positionnement
 	l_bba->setAlignment(Qt::AlignRight);
@@ -263,9 +263,9 @@ Caracs::Caracs()
 	l_ca = new QLabel("CA");
 	l_tot_pv = new QLabel("TOTAL");
 	l_rest_pv = new QLabel("Restants");
-	l_non_letal = new QLabel("Degats non-letaux");
+	l_non_letal = new QLabel("Dégâts non-létaux");
 	l_attaque_contact_ca = new QLabel("CA attaques de contact");
-	l_depourvu_ca = new QLabel("CA pris au depourvu");
+	l_depourvu_ca = new QLabel("CA pris au dépourvu");
 	l_tot_ca = new QLabel("TOTAL");
 	l_armure_ca = new QLabel("Armure");
 	l_bouclier_ca = new QLabel("Bouclier");

@@ -32,25 +32,25 @@ Contrefaçon
 Crochetage
 	N
 	DEX
-Decryptage
+Décryptage
 	N
 	INT
-Deguisement
+Déguisement
 	I
 	CHA
-Deplacement silencieux
+Déplacement silencieux
 	I
 	DEX
-Desamorçage/sabotage
+Désamorçage/sabotage
 	N
 	INT
-Detection
+Détection
 	I
 	SAG
 Diplomatie
 	I
 	CHA
-Discretion
+Discrétion
 	I
 	DEX
 Dressage

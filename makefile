@@ -56,7 +56,7 @@ moc_dons.o: moc_dons.cpp
 
 # Removal of all files created during the compilation, excepting the final executable file
 clean:
-	rm -rf *.o *~ moc_*.cpp
+	rm -rf *.o *~ Ressources/*~ moc_*.cpp
 # Removal of all files created during the compilation, including the final executable file
 completeClean: clean
 	rm -rf $(EXEC)

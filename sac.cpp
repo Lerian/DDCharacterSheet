@@ -45,8 +45,8 @@ Sac::Sac()
 	
 	layoutPoids = new QGridLayout();
 	
-	layoutPoids->addWidget(new QLabel("Charge legere"),0,0);
-	layoutPoids->addWidget(new QLabel("Charge intermediaire"),0,1);
+	layoutPoids->addWidget(new QLabel("Charge légère"),0,0);
+	layoutPoids->addWidget(new QLabel("Charge intermédiaire"),0,1);
 	layoutPoids->addWidget(new QLabel("Charge lourde"),0,2);
 	layoutPoids->addWidget(new QLabel("Porter sur la tete"),0,3);
 	layoutPoids->addWidget(new QLabel("Decoller du sol"),0,4);
@@ -64,7 +64,7 @@ Sac::Sac()
 	layoutInfosSac->addStretch();
 	layoutInfosSac->addWidget(new QLabel("Possessions"));
 	layoutInfosSac->addStretch();
-	layoutInfosSac->addWidget(new QLabel("Poids total transporte:"));
+	layoutInfosSac->addWidget(new QLabel("Poids total transporté:"));
 	layoutInfosSac->addWidget(transporte);
 	
 	ligne1 = new QFrame();

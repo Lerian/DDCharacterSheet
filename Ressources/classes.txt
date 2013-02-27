@@ -8,5 +8,5 @@
 Guerrier
 Moine
 Paladin
-Pretre
-Rodeur
+Prêtre
+Rôdeur

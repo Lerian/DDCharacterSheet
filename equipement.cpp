@@ -15,13 +15,13 @@ Equipement::Equipement()
 	
 	QStringList liste;
 	// Création des en-tête
-	liste << "Poids" << "Valeur" << "Maudit" << "Equipe" << "Objet" << "Touche" << "Degats" << "Critique" << "Portee" << "Type" << "Informations";
+	liste << "Poids" << "Valeur" << "Maudit" << "Equipé" << "Objet" << "Toucher" << "Dégâts" << "Critique" << "Portée" << "Type" << "Informations";
 	armes->setHorizontalHeaderLabels(liste);
 	liste.clear();
-	liste << "Poids" << "Valeur" << "Maudit" << "Equipe" << "Emplacement" << "Objet" << "CA" << "DEX max" << "Informations";
+	liste << "Poids" << "Valeur" << "Maudit" << "Equipé" << "Emplacement" << "Objet" << "CA" << "DEX max" << "Informations";
 	armures->setHorizontalHeaderLabels(liste);
 	liste.clear();
-	liste << "Poids" << "Valeur" << "Maudit" << "Type" << "Equipe" << "Objet" << "Informations";
+	liste << "Poids" << "Valeur" << "Maudit" << "Type" << "Equipé" << "Objet" << "Informations";
 	objets->setHorizontalHeaderLabels(liste);
 	
 	//Création des boutons
