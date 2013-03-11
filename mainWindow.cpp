@@ -28,13 +28,17 @@ MainWindow::MainWindow()
 	menuFichier = new QMenu("Fichier");
 	menuOutils = new QMenu("Outils");
 	
+	etatDiceRoller = new QCheckBox("Afficher le dice roller");
+	
 	barreMenu->addMenu(menuFichier);
 	barreMenu->addMenu(menuOutils);
 	
 	menuFichier->addAction("Quitter",this,SLOT(close()));
 	
-	menuOutils->addAction("Afficher le dice roller",this,SLOT(afficheDiceRoller()));
-	menuOutils->addAction("Enlever le dice roller",this,SLOT(cacheDiceRoller()));
+	action = menuOutils->addAction("Afficher le dice roller");
+	action->setCheckable(true);
+	action->setChecked(true);
+	connect(action,SIGNAL(toggled(bool)),this,SLOT(afficherDiceRoller(bool)));
 	
 	this->setMenuBar(barreMenu);
 	
@@ -42,18 +46,17 @@ MainWindow::MainWindow()
 	dockWidget = new QDockWidget("Dice roller", this);
 	widgetDes = new DiceRoller();
 	
+	dockWidget->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	dockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	dockWidget->setWidget(widgetDes);
 	
 	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 }
 
-void MainWindow::afficheDiceRoller()
+void MainWindow::afficherDiceRoller(bool state)
 {
-	restoreDockWidget(dockWidget);
-}
-
-void MainWindow::cacheDiceRoller()
-{
-	removeDockWidget(dockWidget);
+	if(state)
+		restoreDockWidget(dockWidget);
+	else
+		removeDockWidget(dockWidget);
 }

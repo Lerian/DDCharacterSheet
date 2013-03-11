@@ -29,6 +29,9 @@ private:
 	QMenuBar * barreMenu;
 	QMenu * menuFichier;
 	QMenu * menuOutils;
+	QCheckBox * etatDiceRoller;
+	
+	QAction * action;
 	
 	// Outils de simulation de dés
 	QDockWidget* dockWidget;
@@ -38,7 +41,6 @@ public:
 	MainWindow();
 	
 private slots:
-	void afficheDiceRoller();
-	void cacheDiceRoller();
+	void afficherDiceRoller(bool state);
 };
 #endif //MAIN_WINDOW
