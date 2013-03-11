@@ -8,6 +8,8 @@ DEPENDPATH += . headers src
 INCLUDEPATH += . headers
 MOC_DIR = ./mocFiles
 OBJECTS_DIR = ./bin
+QT += 	gui \
+		sql
 
 # Input
 HEADERS += headers/caracs.h \
@@ -17,7 +19,8 @@ HEADERS += headers/caracs.h \
            headers/equipement.h \
            headers/mainWindow.h \
            headers/rolePlay.h \
-           headers/sac.h
+           headers/sac.h \
+           headers/databaseManager.h
 SOURCES += src/caracs.cpp \
            src/competences.cpp \
            src/diceRoller.cpp \
@@ -26,4 +29,5 @@ SOURCES += src/caracs.cpp \
            src/main.cpp \
            src/mainWindow.cpp \
            src/rolePlay.cpp \
-           src/sac.cpp
+           src/sac.cpp \
+           src/databaseManager.cpp

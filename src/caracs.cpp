@@ -416,49 +416,40 @@ Caracs::Caracs()
 
 void Caracs::setClassList(QComboBox* comboBox)
 {
-	 QFile file("Ressources/classes.txt");
-     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-         return;
-
-     QTextStream in(&file);
-     while (!in.atEnd())
+	 if(dataManager.connexion())
      {
-         QString line = in.readLine();
-         while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-         comboBox->addItem(line);
+     	if(dataManager.requete->exec("select nom from classes"))
+		{
+			while(dataManager.requete->next())
+				comboBox->addItem(dataManager.requete->value(0).toString());
+		}
+     	dataManager.deconnexion();
      }
 }
 
 void Caracs::setRaceList()
 {
-	 QFile file("Ressources/races.txt");
-     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-         return;
-
-     QTextStream in(&file);
-     while (!in.atEnd())
+	 if(dataManager.connexion())
      {
-         QString line = in.readLine();
-         while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-         c_race->addItem(line);
+     	if(dataManager.requete->exec("select nom from races"))
+		{
+			while(dataManager.requete->next())
+				c_race->addItem(dataManager.requete->value(0).toString());
+		}
+     	dataManager.deconnexion();
      }
 }
 
 void Caracs::setDivinityList()
 {
-	 QFile file("Ressources/divinities.txt");
-     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-         return;
-
-     QTextStream in(&file);
-     while (!in.atEnd())
+	 if(dataManager.connexion())
      {
-         QString line = in.readLine();
-         while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-         c_divinite->addItem(line);
+     	if(dataManager.requete->exec("select nom from divinites"))
+		{
+			while(dataManager.requete->next())
+				c_divinite->addItem(dataManager.requete->value(0).toString());
+		}
+     	dataManager.deconnexion();
      }
 }
 

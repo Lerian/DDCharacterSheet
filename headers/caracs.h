@@ -4,6 +4,10 @@
 #include <QtGui>
 #include <vector>
 
+#include "databaseManager.h"
+
+extern DatabaseManager dataManager;
+
 class Caracs: public QWidget
 {
 

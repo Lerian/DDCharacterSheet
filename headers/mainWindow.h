@@ -34,8 +34,8 @@ private:
 	QAction * action;
 	
 	// Outils de simulation de dés
-	QDockWidget* dockWidget;
-	DiceRoller* widgetDes;
+	QDockWidget * dockWidget;
+	DiceRoller * widgetDes;
 	
 public:
 	MainWindow();
