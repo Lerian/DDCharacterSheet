@@ -59,24 +59,8 @@ Caracs::Caracs()
 	//Construction des comboBox
 	setRaceList();
 	setDivinityList();
-		//Alignement
-	c_alignement->addItem("");
-	c_alignement->addItem("Loyal Bon");
-	c_alignement->addItem("Neutre Bon");
-	c_alignement->addItem("Chaotique Bon");
-	c_alignement->addItem("Loyal Neutre");
-	c_alignement->addItem("Neutre");
-	c_alignement->addItem("Chaotique Neutre");
-	c_alignement->addItem("Loyal Mauvais");
-	c_alignement->addItem("Neutre Mauvais");
-	c_alignement->addItem("Chaotique Mauvais");
-		//Catégorie de taille
-	c_categorieTaille->addItem("");
-	c_categorieTaille->addItem("Très petite");
-	c_categorieTaille->addItem("Petite");
-	c_categorieTaille->addItem("Moyenne");
-	c_categorieTaille->addItem("Grande");
-	c_categorieTaille->addItem("Très grande");
+	setAlignmentList();
+	setSizeCategory();
 	
 	//Placement des labels dans le layout
 	layoutInfos->addWidget(l_nom,0,0);
@@ -448,6 +432,32 @@ void Caracs::setDivinityList()
 		{
 			while(dataManager.requete->next())
 				c_divinite->addItem(dataManager.requete->value(0).toString());
+		}
+     	dataManager.deconnexion();
+     }
+}
+
+void Caracs::setAlignmentList()
+{
+	 if(dataManager.connexion())
+     {
+     	if(dataManager.requete->exec("select nom from alignements"))
+		{
+			while(dataManager.requete->next())
+				c_alignement->addItem(dataManager.requete->value(0).toString());
+		}
+     	dataManager.deconnexion();
+     }
+}
+
+void Caracs::setSizeCategory()
+{
+	if(dataManager.connexion())
+     {
+     	if(dataManager.requete->exec("select nom from categoriesTailles"))
+		{
+			while(dataManager.requete->next())
+				c_categorieTaille->addItem(dataManager.requete->value(0).toString());
 		}
      	dataManager.deconnexion();
      }

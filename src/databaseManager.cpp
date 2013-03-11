@@ -32,6 +32,10 @@ void DatabaseManager::constructionTables()
 			std::cout << "échec création de table races" << std::endl;
 		if(!requete->exec("create table if not exists divinites (nom varchar(50) primary key)"))
 			std::cout << "échec création de table divinites" << std::endl;
+		if(!requete->exec("create table if not exists alignements (nom varchar(50) primary key)"))
+			std::cout << "échec création de table alignements" << std::endl;
+		if(!requete->exec("create table if not exists categoriesTailles (nom varchar(50) primary key)"))
+			std::cout << "échec création de table categoriesTailles" << std::endl;
 		db->close();
 	}
 	else
@@ -69,6 +73,24 @@ void DatabaseManager::remplissageTables()
 		requete->exec("insert into divinites values('Moradin')");
 		requete->exec("insert into divinites values('Reine Corneille')");
 		requete->exec("insert into divinites values('Tempus')");
+		
+		// Table alignements
+		requete->exec("insert into alignements values('Loyal bon')");
+		requete->exec("insert into alignements values('Neutre bon')");
+		requete->exec("insert into alignements values('Chaotique bon')");
+		requete->exec("insert into alignements values('Loyal neutre')");
+		requete->exec("insert into alignements values('Neutre')");
+		requete->exec("insert into alignements values('Chaotique neutre')");
+		requete->exec("insert into alignements values('Loyal mauvais')");
+		requete->exec("insert into alignements values('Neutre mauvais')");
+		requete->exec("insert into alignements values('Chaotique mauvais')");
+		
+		// Table categoriesTailles
+		requete->exec("insert into categoriesTailles values('Très petite')");
+		requete->exec("insert into categoriesTailles values('Petite')");
+		requete->exec("insert into categoriesTailles values('Moyenne')");
+		requete->exec("insert into categoriesTailles values('Grande')");
+		requete->exec("insert into categoriesTailles values('Très grande')");
 		
 		db->close();
 	}

@@ -172,6 +172,8 @@ public:
 	void setClassList(QComboBox*);
 	void setRaceList();
 	void setDivinityList();
+	void setAlignmentList();
+	void setSizeCategory();
 	
 private slots:
 	void ajoutClasse();
