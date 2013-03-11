@@ -20,7 +20,7 @@ DiceRoller::DiceRoller()
 	boutonD12 = new QPushButton("d12");
 	boutonD20 = new QPushButton("d20");
 	boutonD100 = new QPushButton("d100");
-	boutonClear = new QPushButton("Clear");
+	boutonClear = new QPushButton("Effacer");
 	
 	avertissement = new QLabel("/!\\ Aléatoire approximatif /!\\");
 	

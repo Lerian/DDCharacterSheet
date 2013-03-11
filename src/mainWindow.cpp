@@ -2,7 +2,7 @@
 
 MainWindow::MainWindow()
 {
-	this->setWindowIcon(QIcon("Ressources/icone.png"));
+	this->setWindowIcon(QIcon("../Ressources/icone.png"));
 	this->setWindowTitle("Feuille de personnage D&D 3.5");
 	
 	// Widget central, onglets des pages
