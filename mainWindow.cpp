@@ -26,10 +26,15 @@ MainWindow::MainWindow()
 	// Barre de menus
 	barreMenu = new QMenuBar(this);
 	menuFichier = new QMenu("Fichier");
+	menuOutils = new QMenu("Outils");
 	
 	barreMenu->addMenu(menuFichier);
+	barreMenu->addMenu(menuOutils);
 	
 	menuFichier->addAction("Quitter",this,SLOT(close()));
+	
+	menuOutils->addAction("Afficher le dice roller",this,SLOT(afficheDiceRoller()));
+	menuOutils->addAction("Enlever le dice roller",this,SLOT(cacheDiceRoller()));
 	
 	this->setMenuBar(barreMenu);
 	
@@ -41,4 +46,14 @@ MainWindow::MainWindow()
 	dockWidget->setWidget(widgetDes);
 	
 	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
+}
+
+void MainWindow::afficheDiceRoller()
+{
+	restoreDockWidget(dockWidget);
+}
+
+void MainWindow::cacheDiceRoller()
+{
+	removeDockWidget(dockWidget);
 }

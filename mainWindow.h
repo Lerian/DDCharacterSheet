@@ -28,6 +28,7 @@ private:
 	// Barre de menus
 	QMenuBar * barreMenu;
 	QMenu * menuFichier;
+	QMenu * menuOutils;
 	
 	// Outils de simulation de dés
 	QDockWidget* dockWidget;
@@ -37,5 +38,7 @@ public:
 	MainWindow();
 	
 private slots:
+	void afficheDiceRoller();
+	void cacheDiceRoller();
 };
 #endif //MAIN_WINDOW
