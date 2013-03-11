@@ -23,7 +23,17 @@ MainWindow::MainWindow()
 	
 	this->setCentralWidget(menuOnglets);
 	
-	//DockWidget, lanceur de dés
+	// Barre de menus
+	barreMenu = new QMenuBar(this);
+	menuFichier = new QMenu("Fichier");
+	
+	barreMenu->addMenu(menuFichier);
+	
+	menuFichier->addAction("Quitter",this,SLOT(close()));
+	
+	this->setMenuBar(barreMenu);
+	
+	// DockWidget, lanceur de dés
 	dockWidget = new QDockWidget("Dice roller", this);
 	widgetDes = new DiceRoller();
 	

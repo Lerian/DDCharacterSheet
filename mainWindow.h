@@ -25,6 +25,10 @@ private:
 	Dons * ongletDons;
 	RolePlay * ongletRP;
 	
+	// Barre de menus
+	QMenuBar * barreMenu;
+	QMenu * menuFichier;
+	
 	// Outils de simulation de dés
 	QDockWidget* dockWidget;
 	DiceRoller* widgetDes;
@@ -33,6 +37,5 @@ public:
 	MainWindow();
 	
 private slots:
-
 };
 #endif //MAIN_WINDOW
