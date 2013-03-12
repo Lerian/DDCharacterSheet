@@ -2,6 +2,9 @@
 #define COMPETENCES_H
 
 #include <QtGui>
+#include "databaseManager.h"
+
+extern DatabaseManager dataManager;
 
 class Competences: public QWidget
 {

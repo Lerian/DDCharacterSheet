@@ -28,14 +28,12 @@ MainWindow::MainWindow()
 	menuFichier = new QMenu("Fichier");
 	menuOutils = new QMenu("Outils");
 	
-	etatDiceRoller = new QCheckBox("Afficher le dice roller");
-	
 	barreMenu->addMenu(menuFichier);
 	barreMenu->addMenu(menuOutils);
 	
 	menuFichier->addAction("Quitter",this,SLOT(close()));
 	
-	action = menuOutils->addAction("Afficher le dice roller");
+	action = menuOutils->addAction("Afficher le lanceur de dés");
 	action->setCheckable(true);
 	action->setChecked(true);
 	connect(action,SIGNAL(toggled(bool)),this,SLOT(afficherDiceRoller(bool)));
@@ -43,7 +41,7 @@ MainWindow::MainWindow()
 	this->setMenuBar(barreMenu);
 	
 	// DockWidget, lanceur de dés
-	dockWidget = new QDockWidget("Dice roller", this);
+	dockWidget = new QDockWidget("Lanceur de dés", this);
 	widgetDes = new DiceRoller();
 	
 	dockWidget->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);

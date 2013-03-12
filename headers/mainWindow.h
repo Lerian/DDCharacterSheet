@@ -29,7 +29,6 @@ private:
 	QMenuBar * barreMenu;
 	QMenu * menuFichier;
 	QMenu * menuOutils;
-	QCheckBox * etatDiceRoller;
 	
 	QAction * action;
 	

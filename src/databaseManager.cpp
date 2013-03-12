@@ -36,6 +36,8 @@ void DatabaseManager::constructionTables()
 			std::cout << "échec création de table alignements" << std::endl;
 		if(!requete->exec("create table if not exists categoriesTailles (nom varchar(50) primary key)"))
 			std::cout << "échec création de table categoriesTailles" << std::endl;
+		if(!requete->exec("create table if not exists competences (nom varchar(50) primary key, stat varchar(3), innee varchar(1))"))
+			std::cout << "échec création de table competences" << std::endl;
 		db->close();
 	}
 	else
@@ -91,6 +93,26 @@ void DatabaseManager::remplissageTables()
 		requete->exec("insert into categoriesTailles values('Moyenne')");
 		requete->exec("insert into categoriesTailles values('Grande')");
 		requete->exec("insert into categoriesTailles values('Très grande')");
+		
+		// Table competences
+		requete->exec("insert into competences values('Acrobaties','DEX','N')");
+		requete->exec("insert into competences values('Art de la magie','INT','N')");
+		requete->exec("insert into competences values('Artisanat','INT','O')");
+		requete->exec("insert into competences values('Bluff','CHA','O')");
+		requete->exec("insert into competences values('Concentration','CON','O')");
+		requete->exec("insert into competences values('Connaissances','INT','N')");
+		requete->exec("insert into competences values('Contrefaçon','INT','O')");
+		requete->exec("insert into competences values('Crochetage','DEX','N')");
+		requete->exec("insert into competences values('Décryptage','INT','N')");
+		requete->exec("insert into competences values('Déguisement','CHA','O')");
+		requete->exec("insert into competences values('Déplacement siencieux','DEX','O')");
+		requete->exec("insert into competences values('Désamorçage/Sabotage','INT','N')");
+		requete->exec("insert into competences values('Détection','SAG','O')");
+		requete->exec("insert into competences values('Diplomatie','CHA','O')");
+		requete->exec("insert into competences values('Discrétion','DEX','O')");
+		requete->exec("insert into competences values('Dressage','CHA','N')");
+		requete->exec("insert into competences values('Equilibre','DEX','O')");
+		requete->exec("insert into competences values('Equitation','DEX','O')");
 		
 		db->close();
 	}
