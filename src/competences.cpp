@@ -52,59 +52,6 @@ Competences::Competences()
 	table->resizeColumnsToContents();
 }
 
-/*void Competences::setListCompetences()
-{
-	QStringList listeCompetences;
-	QStringList listeInnee;
-	QStringList listeStat;
-
-	QFile file("Ressources/competences.txt");
-	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-		return;
-
-	QTextStream in(&file);
-	while (!in.atEnd())
-	{	
-		QString line = in.readLine();
-		while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-		nbCompetences++;
-		listeCompetences << line;
-		
-		line = in.readLine();
-		while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-		if(line[1] == 'I')
-			listeInnee << "I";
-		else
-			listeInnee << "N";
-		
-		line = in.readLine();
-		while(line[0] == '#')	// élimination des lignes de commentaires
-			line = in.readLine();
-		line.remove(0,1);
-		listeStat << line;
-	}
-	
-	table->setRowCount(listeCompetences.size());
-	
-	for(int i = 0;i<listeCompetences.size();i++)
-	{
-		//CheckBox de compétence de classe
-		table->setCellWidget(i,0,new QCheckBox());
-		//CheckBox de compétence innée
-		table->setCellWidget(i,1,new QCheckBox());
-		if(listeInnee[i] == "I")
-			dynamic_cast<QCheckBox&>(*table->cellWidget(i,1)).setChecked(true);
-		//Compétence
-		newItem = new QTableWidgetItem(listeCompetences[i]);
-		table->setItem(i, 2, newItem);
-		//Stat associée
-		newItem = new QTableWidgetItem(listeStat[i]);
-		table->setItem(i, 3, newItem);
-	}
-}*/
-
 void Competences::setListCompetences()
 {
 	QStringList listeCompetences;
