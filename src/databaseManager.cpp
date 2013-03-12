@@ -13,7 +13,13 @@ DatabaseManager::DatabaseManager(QObject * parent)
 
 bool DatabaseManager::connexion()
 {
-	return db->open();
+	if(db->open())
+	{
+		requete = new QSqlQuery();
+		return true;
+	}
+	else
+		return false;
 }
 
 void DatabaseManager::deconnexion()
