@@ -47,27 +47,27 @@ private:
 	QPushButton* boutonRetraitClasse;
 	
 	//Stats
-	QLineEdit* c_for_score;
+	QSpinBox* c_for_score;
 	QLineEdit* c_for_mod;
 	QLineEdit* c_for_score_tmp;
 	QLineEdit* c_for_mod_tmp;
-	QLineEdit* c_dex_score;
+	QSpinBox* c_dex_score;
 	QLineEdit* c_dex_mod;
 	QLineEdit* c_dex_score_tmp;
 	QLineEdit* c_dex_mod_tmp;
-	QLineEdit* c_con_score;
+	QSpinBox* c_con_score;
 	QLineEdit* c_con_mod;
 	QLineEdit* c_con_score_tmp;
 	QLineEdit* c_con_mod_tmp;
-	QLineEdit* c_int_score;
+	QSpinBox* c_int_score;
 	QLineEdit* c_int_mod;
 	QLineEdit* c_int_score_tmp;
 	QLineEdit* c_int_mod_tmp;
-	QLineEdit* c_sag_score;
+	QSpinBox* c_sag_score;
 	QLineEdit* c_sag_mod;
 	QLineEdit* c_sag_score_tmp;
 	QLineEdit* c_sag_mod_tmp;
-	QLineEdit* c_cha_score;
+	QSpinBox* c_cha_score;
 	QLineEdit* c_cha_mod;
 	QLineEdit* c_cha_score_tmp;
 	QLineEdit* c_cha_mod_tmp;
@@ -178,6 +178,12 @@ public:
 private slots:
 	void ajoutClasse();
 	void retraitClasse();
+	void calculModFor(int);
+	void calculModDex(int);
+	void calculModCon(int);
+	void calculModInt(int);
+	void calculModSag(int);
+	void calculModCha(int);
 };
 
 #endif // CARACS_H

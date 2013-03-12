@@ -81,28 +81,52 @@ Caracs::Caracs()
 // Partie stats
 
 	//Création des champs
-	c_for_score = new QLineEdit();
+	c_for_score = new QSpinBox();
+		c_for_score->setRange(0,50);
 	c_for_mod = new QLineEdit();
+		c_for_mod->setReadOnly(true);
+		c_for_mod->setFixedWidth(50);
+		c_for_mod->setAlignment(Qt::AlignCenter);
 	c_for_score_tmp = new QLineEdit();
 	c_for_mod_tmp = new QLineEdit();
-	c_dex_score = new QLineEdit();
+	c_dex_score = new QSpinBox();
+		c_dex_score->setRange(0,50);
 	c_dex_mod = new QLineEdit();
+		c_dex_mod->setReadOnly(true);
+		c_dex_mod->setFixedWidth(50);
+		c_dex_mod->setAlignment(Qt::AlignCenter);
 	c_dex_score_tmp = new QLineEdit();
 	c_dex_mod_tmp = new QLineEdit();
-	c_con_score = new QLineEdit();
+	c_con_score = new QSpinBox();
+		c_con_score->setRange(0,50);
 	c_con_mod = new QLineEdit();
+		c_con_mod->setReadOnly(true);
+		c_con_mod->setFixedWidth(50);
+		c_con_mod->setAlignment(Qt::AlignCenter);
 	c_con_score_tmp = new QLineEdit();
 	c_con_mod_tmp = new QLineEdit();
-	c_int_score = new QLineEdit();
+	c_int_score = new QSpinBox();
+		c_int_score->setRange(0,50);
 	c_int_mod = new QLineEdit();
+		c_int_mod->setReadOnly(true);
+		c_int_mod->setFixedWidth(50);
+		c_int_mod->setAlignment(Qt::AlignCenter);
 	c_int_score_tmp = new QLineEdit();
 	c_int_mod_tmp = new QLineEdit();
-	c_sag_score = new QLineEdit();
+	c_sag_score = new QSpinBox();
+		c_sag_score->setRange(0,50);
 	c_sag_mod = new QLineEdit();
+		c_sag_mod->setReadOnly(true);
+		c_sag_mod->setFixedWidth(50);
+		c_sag_mod->setAlignment(Qt::AlignCenter);
 	c_sag_score_tmp = new QLineEdit();
 	c_sag_mod_tmp = new QLineEdit();
-	c_cha_score = new QLineEdit();
+	c_cha_score = new QSpinBox();
+		c_cha_score->setRange(0,50);
 	c_cha_mod = new QLineEdit();
+		c_cha_mod->setReadOnly(true);
+		c_cha_mod->setFixedWidth(50);
+		c_cha_mod->setAlignment(Qt::AlignCenter);
 	c_cha_score_tmp = new QLineEdit();
 	c_cha_mod_tmp = new QLineEdit();
 	//Placement des champs dans le layout
@@ -130,6 +154,28 @@ Caracs::Caracs()
 	layoutStats->addWidget(c_cha_mod,13,2);
 	layoutStats->addWidget(c_cha_score_tmp,13,3);
 	layoutStats->addWidget(c_cha_mod_tmp,13,4);
+	
+	//Connexion des signaux/slots
+	connect(c_for_score,SIGNAL(valueChanged(int)),this,SLOT(calculModFor(int)));
+	connect(c_dex_score,SIGNAL(valueChanged(int)),this,SLOT(calculModDex(int)));
+	connect(c_con_score,SIGNAL(valueChanged(int)),this,SLOT(calculModCon(int)));
+	connect(c_int_score,SIGNAL(valueChanged(int)),this,SLOT(calculModInt(int)));
+	connect(c_sag_score,SIGNAL(valueChanged(int)),this,SLOT(calculModSag(int)));
+	connect(c_cha_score,SIGNAL(valueChanged(int)),this,SLOT(calculModCha(int)));
+
+	//Calcul des valeurs initiales
+	c_for_score->setValue(10);
+	calculModFor(c_for_score->value());
+	c_dex_score->setValue(10);
+	calculModDex(c_dex_score->value());
+	c_con_score->setValue(10);
+	calculModCon(c_con_score->value());
+	c_int_score->setValue(10);
+	calculModInt(c_int_score->value());
+	c_sag_score->setValue(10);
+	calculModSag(c_sag_score->value());
+	c_cha_score->setValue(10);
+	calculModCha(c_cha_score->value());
 
 	//Création des labels
 	l_carac = new QLabel("Caracs");
@@ -222,6 +268,8 @@ Caracs::Caracs()
 	c_armure_ca = new QLineEdit();
 	c_bouclier_ca = new QLineEdit();
 	c_mod_dex_ca = new QLineEdit();
+		c_mod_dex_ca->setReadOnly(true);
+		c_mod_dex_ca->setText("0");
 	c_mod_taille_ca = new QLineEdit();
 	c_arm_naturelle_ca = new QLineEdit();
 	c_mod_parade_ca = new QLineEdit();
@@ -284,6 +332,9 @@ Caracs::Caracs()
 	layoutPVCA->addWidget(new QLabel("+"),2,10);
 	layoutPVCA->addWidget(new QLabel("+"),2,12);
 	layoutPVCA->addWidget(new QLabel("+"),2,14);
+	
+	//Connexion des signaux/slots
+	connect(c_dex_mod,SIGNAL(textChanged(const QString &)),c_mod_dex_ca,SLOT(setText(const QString &)));
 
 //Partie sauvegardes
 
@@ -291,18 +342,24 @@ Caracs::Caracs()
 	c_tot_ref = new QLineEdit();
 	c_base_ref = new QLineEdit();
 	c_carac_ref = new QLineEdit();
+		c_carac_ref->setReadOnly(true);
+		c_carac_ref->setText("0");
 	c_magie_ref = new QLineEdit();
 	c_divers_ref = new QLineEdit();
 	c_tmp_ref = new QLineEdit();
 	c_tot_vig = new QLineEdit();
 	c_base_vig = new QLineEdit();
 	c_carac_vig = new QLineEdit();
+		c_carac_vig->setReadOnly(true);
+		c_carac_vig->setText("0");
 	c_magie_vig = new QLineEdit();
 	c_divers_vig = new QLineEdit();
 	c_tmp_vig = new QLineEdit();
 	c_tot_vol = new QLineEdit();
 	c_base_vol = new QLineEdit();
 	c_carac_vol = new QLineEdit();
+		c_carac_vol->setReadOnly(true);
+		c_carac_vol->setText("0");
 	c_magie_vol = new QLineEdit();
 	c_divers_vol = new QLineEdit();
 	c_tmp_vol = new QLineEdit();
@@ -335,9 +392,9 @@ Caracs::Caracs()
 	l_magie = new QLabel("Mod. magique");
 	l_divers = new QLabel("Mod. divers");
 	l_tmp = new QLabel("Mod. temporaires");
-	l_ref = new QLabel("REFLEXES");
-	l_vig = new QLabel("VIGEUR");
-	l_vol = new QLabel("VOLONTE");
+	l_ref = new QLabel("REFLEXES (dex)");
+	l_vig = new QLabel("VIGEUR (con)");
+	l_vol = new QLabel("VOLONTE (sag)");
 
 	//Placement des labels dans le layout
 	layoutSauvegardes->addWidget(l_sauvegarde,0,0);
@@ -367,6 +424,11 @@ Caracs::Caracs()
 	layoutSauvegardes->addWidget(new QLabel("="),1,2);
 	layoutSauvegardes->addWidget(new QLabel("="),2,2);
 	layoutSauvegardes->addWidget(new QLabel("="),3,2);
+	
+	//Connexion des signaux/slots
+	connect(c_dex_mod,SIGNAL(textChanged(const QString &)),c_carac_ref,SLOT(setText(const QString &)));
+	connect(c_con_mod,SIGNAL(textChanged(const QString &)),c_carac_vig,SLOT(setText(const QString &)));
+	connect(c_sag_mod,SIGNAL(textChanged(const QString &)),c_carac_vol,SLOT(setText(const QString &)));
 	
 //Mise en page
 
@@ -496,4 +558,52 @@ void Caracs::retraitClasse()
 		c_classe.pop_back();
 		c_niveau.pop_back();		
 	}
+}
+
+void Caracs::calculModFor(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_for_mod->setText(QString::number(newVal));
+}
+
+void Caracs::calculModDex(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_dex_mod->setText(QString::number(newVal));
+}
+
+void Caracs::calculModCon(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_con_mod->setText(QString::number(newVal));
+}
+
+void Caracs::calculModInt(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_int_mod->setText(QString::number(newVal));
+}
+
+void Caracs::calculModSag(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_sag_mod->setText(QString::number(newVal));
+}
+
+void Caracs::calculModCha(int val)
+{
+	int newVal = (val-10)/2;
+	if(val < 10 && val%2 != 0)
+		newVal--;
+	c_cha_mod->setText(QString::number(newVal));
 }
