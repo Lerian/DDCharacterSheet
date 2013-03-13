@@ -8,6 +8,8 @@ extern DatabaseManager dataManager;
 
 class Competences: public QWidget
 {
+	Q_OBJECT
+
 private:
 	int nbCompetences;
 	QLineEdit* degreMaitriseMaxI;
@@ -22,6 +24,15 @@ private:
 public:
 	Competences();
 	void setListCompetences();
+	void changeCaracMod(QString carac, int newValue);
+
+public slots:
+	void modForChanged(int newValue);
+	void modDexChanged(int newValue);
+	void modConChanged(int newValue);
+	void modIntChanged(int newValue);
+	void modSagChanged(int newValue);
+	void modChaChanged(int newValue);
 };
 
 #endif // COMPETENCES_H

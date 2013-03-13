@@ -49,6 +49,14 @@ MainWindow::MainWindow()
 	dockWidget->setWidget(widgetDes);
 	
 	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
+	
+	// Connexion signaux/slots
+	connect(ongletCaracs,SIGNAL(modForChanged(int)),ongletCompetences,SLOT(modForChanged(int)));
+	connect(ongletCaracs,SIGNAL(modDexChanged(int)),ongletCompetences,SLOT(modDexChanged(int)));
+	connect(ongletCaracs,SIGNAL(modConChanged(int)),ongletCompetences,SLOT(modConChanged(int)));
+	connect(ongletCaracs,SIGNAL(modIntChanged(int)),ongletCompetences,SLOT(modIntChanged(int)));
+	connect(ongletCaracs,SIGNAL(modSagChanged(int)),ongletCompetences,SLOT(modSagChanged(int)));
+	connect(ongletCaracs,SIGNAL(modChaChanged(int)),ongletCompetences,SLOT(modChaChanged(int)));
 }
 
 void MainWindow::afficherDiceRoller(bool state)

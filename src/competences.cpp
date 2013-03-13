@@ -90,5 +90,48 @@ void Competences::setListCompetences()
 		//Stat associée
 		newItem = new QTableWidgetItem(listeStat[i]);
 		table->setItem(i, 3, newItem);
+		//Label de modificateur de carac
+		QLabel * label = new QLabel("0");
+		label->setAlignment(Qt::AlignCenter);
+		table->setCellWidget(i,5,label);
 	}
+}
+
+void Competences::changeCaracMod(QString carac, int newValue)
+{
+	for(int i = 0; i < table->rowCount(); i++)
+	{
+		if(table->item(i,3)->text() == carac)
+			dynamic_cast<QLabel&>(*table->cellWidget(i,5)).setText(QString::number(newValue));
+	}
+}
+
+void Competences::modForChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("FOR"),newValue);
+}
+
+void Competences::modDexChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("DEX"),newValue);
+}
+
+void Competences::modConChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("CON"),newValue);
+}
+
+void Competences::modIntChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("INT"),newValue);
+}
+
+void Competences::modSagChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("SAG"),newValue);
+}
+
+void Competences::modChaChanged(int newValue)
+{
+	changeCaracMod(QString::fromStdString("CHA"),newValue);
 }

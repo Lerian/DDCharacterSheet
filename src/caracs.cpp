@@ -566,6 +566,8 @@ void Caracs::calculModFor(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_for_mod->setText(QString::number(newVal));
+	
+	emit modForChanged(newVal);
 }
 
 void Caracs::calculModDex(int val)
@@ -574,6 +576,8 @@ void Caracs::calculModDex(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_dex_mod->setText(QString::number(newVal));
+	
+	emit modDexChanged(newVal);
 }
 
 void Caracs::calculModCon(int val)
@@ -582,6 +586,8 @@ void Caracs::calculModCon(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_con_mod->setText(QString::number(newVal));
+	
+	emit modConChanged(newVal);
 }
 
 void Caracs::calculModInt(int val)
@@ -590,6 +596,8 @@ void Caracs::calculModInt(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_int_mod->setText(QString::number(newVal));
+	
+	emit modIntChanged(newVal);
 }
 
 void Caracs::calculModSag(int val)
@@ -598,6 +606,8 @@ void Caracs::calculModSag(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_sag_mod->setText(QString::number(newVal));
+	
+	emit modSagChanged(newVal);
 }
 
 void Caracs::calculModCha(int val)
@@ -606,4 +616,6 @@ void Caracs::calculModCha(int val)
 	if(val < 10 && val%2 != 0)
 		newVal--;
 	c_cha_mod->setText(QString::number(newVal));
+	
+	emit modChaChanged(newVal);
 }

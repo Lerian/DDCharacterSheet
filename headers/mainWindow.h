@@ -38,7 +38,7 @@ private:
 	
 public:
 	MainWindow();
-	
+
 private slots:
 	void afficherDiceRoller(bool state);
 };

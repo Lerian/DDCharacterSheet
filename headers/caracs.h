@@ -174,7 +174,15 @@ public:
 	void setDivinityList();
 	void setAlignmentList();
 	void setSizeCategory();
-	
+
+signals:
+	void modForChanged(int newValue);
+	void modDexChanged(int newValue);
+	void modConChanged(int newValue);
+	void modIntChanged(int newValue);
+	void modSagChanged(int newValue);
+	void modChaChanged(int newValue);
+
 private slots:
 	void ajoutClasse();
 	void retraitClasse();
