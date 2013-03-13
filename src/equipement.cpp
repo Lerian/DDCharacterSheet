@@ -104,9 +104,48 @@ void Equipement::ajoutLigneArme()
 	armes->setRowCount(armes->rowCount()+1);
 }
 
-void Equipement::retraitLigneArme()
+void Equipement::supprimerLigneArme()
 {
 	armes->setRowCount(armes->rowCount()-1);
+}
+
+void Equipement::ouvrirDialogArme()
+{
+	QDialog dialog(this);
+
+	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QPushButton oui("Oui",&dialog);
+	oui.setCheckable(true);
+	oui.setChecked(true);
+	QPushButton non("Non",&dialog);
+	non.setCheckable(true);
+	QGridLayout layoutDialog(&dialog);
+	layoutDialog.addWidget(&message,0,0,1,4);
+	layoutDialog.addWidget(&oui,1,1);
+	layoutDialog.addWidget(&non,1,2);
+	
+	connect(&oui,SIGNAL(clicked()),this,SLOT(supprimerLigneArme()));
+	connect(&oui,SIGNAL(clicked()),&dialog,SLOT(close()));
+	connect(&non,SIGNAL(clicked()),&dialog,SLOT(close()));
+	
+	dialog.exec();
+}
+
+void Equipement::retraitLigneArme()
+{
+	bool vide = true;
+	
+	for(int i = 0;i < armes->columnCount();i++)
+	{
+		bool noWidget = armes->item(armes->rowCount()-1,i) == NULL;
+		if(!noWidget)
+			noWidget = armes->item(armes->rowCount()-1,i)->text() == "";
+		vide = vide && noWidget;
+	}
+	if(vide)
+		supprimerLigneArme();
+	else
+		ouvrirDialogArme();
 }
 
 void Equipement::ajoutLigneArmure()
@@ -114,9 +153,48 @@ void Equipement::ajoutLigneArmure()
 	armures->setRowCount(armures->rowCount()+1);
 }
 
-void Equipement::retraitLigneArmure()
+void Equipement::supprimerLigneArmure()
 {
 	armures->setRowCount(armures->rowCount()-1);
+}
+
+void Equipement::ouvrirDialogArmure()
+{
+	QDialog dialog(this);
+
+	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QPushButton oui("Oui",&dialog);
+	oui.setCheckable(true);
+	oui.setChecked(true);
+	QPushButton non("Non",&dialog);
+	non.setCheckable(true);
+	QGridLayout layoutDialog(&dialog);
+	layoutDialog.addWidget(&message,0,0,1,4);
+	layoutDialog.addWidget(&oui,1,1);
+	layoutDialog.addWidget(&non,1,2);
+	
+	connect(&oui,SIGNAL(clicked()),this,SLOT(supprimerLigneArmure()));
+	connect(&oui,SIGNAL(clicked()),&dialog,SLOT(close()));
+	connect(&non,SIGNAL(clicked()),&dialog,SLOT(close()));
+	
+	dialog.exec();
+}
+
+void Equipement::retraitLigneArmure()
+{
+	bool vide = true;
+	
+	for(int i = 0;i < armures->columnCount();i++)
+	{
+		bool noWidget = armures->item(armures->rowCount()-1,i) == NULL;
+		if(!noWidget)
+			noWidget = armures->item(armures->rowCount()-1,i)->text() == "";
+		vide = vide && noWidget;
+	}
+	if(vide)
+		supprimerLigneArmure();
+	else
+		ouvrirDialogArmure();
 }
 
 void Equipement::ajoutLigneObjet()
@@ -124,7 +202,46 @@ void Equipement::ajoutLigneObjet()
 	objets->setRowCount(objets->rowCount()+1);
 }
 
-void Equipement::retraitLigneObjet()
+void Equipement::supprimerLigneObjet()
 {
 	objets->setRowCount(objets->rowCount()-1);
+}
+
+void Equipement::ouvrirDialogObjet()
+{
+	QDialog dialog(this);
+
+	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QPushButton oui("Oui",&dialog);
+	oui.setCheckable(true);
+	oui.setChecked(true);
+	QPushButton non("Non",&dialog);
+	non.setCheckable(true);
+	QGridLayout layoutDialog(&dialog);
+	layoutDialog.addWidget(&message,0,0,1,4);
+	layoutDialog.addWidget(&oui,1,1);
+	layoutDialog.addWidget(&non,1,2);
+	
+	connect(&oui,SIGNAL(clicked()),this,SLOT(supprimerLigneObjet()));
+	connect(&oui,SIGNAL(clicked()),&dialog,SLOT(close()));
+	connect(&non,SIGNAL(clicked()),&dialog,SLOT(close()));
+	
+	dialog.exec();
+}
+
+void Equipement::retraitLigneObjet()
+{
+	bool vide = true;
+	
+	for(int i = 0;i < objets->columnCount();i++)
+	{
+		bool noWidget = objets->item(objets->rowCount()-1,i) == NULL;
+		if(!noWidget)
+			noWidget = objets->item(objets->rowCount()-1,i)->text() == "";
+		vide = vide && noWidget;
+	}
+	if(vide)
+		supprimerLigneObjet();
+	else
+		ouvrirDialogObjet();
 }

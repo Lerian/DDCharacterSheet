@@ -2,6 +2,7 @@
 #define EQUIPEMENT_H
 
 #include <QtGui>
+#include <iostream>
 
 class Equipement: public QWidget
 {
@@ -40,10 +41,18 @@ public:
 
 private slots:
 	void ajoutLigneArme();
+	void supprimerLigneArme();
+	void ouvrirDialogArme();
 	void retraitLigneArme();
+	
 	void ajoutLigneArmure();
+	void supprimerLigneArmure();
+	void ouvrirDialogArmure();
 	void retraitLigneArmure();
+	
 	void ajoutLigneObjet();
+	void supprimerLigneObjet();
+	void ouvrirDialogObjet();
 	void retraitLigneObjet();
 };
 
