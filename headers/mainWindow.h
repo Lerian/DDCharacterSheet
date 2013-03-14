@@ -9,6 +9,7 @@
 #include "dons.h"
 #include "rolePlay.h"
 #include "diceRoller.h"
+#include "infoWidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -33,13 +34,18 @@ private:
 	QAction * action;
 	
 	// Outils de simulation de dés
-	QDockWidget * dockWidget;
+	QDockWidget * dockWidgetDes;
 	DiceRoller * widgetDes;
+	
+	// Outils d'affichage des infos
+	QDockWidget * dockWidgetInfos;
+	InfoWidget * widgetInfos;
 	
 public:
 	MainWindow();
 
 private slots:
 	void afficherDiceRoller(bool state);
+	void afficherInformations(bool state);
 };
 #endif //MAIN_WINDOW

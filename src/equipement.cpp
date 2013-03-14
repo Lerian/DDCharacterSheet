@@ -113,7 +113,7 @@ void Equipement::ouvrirDialogArme()
 {
 	QDialog dialog(this);
 
-	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QLabel message("La dernière ligne du tableau Armes contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
 	QPushButton oui("Oui",&dialog);
 	oui.setCheckable(true);
 	oui.setChecked(true);
@@ -162,7 +162,7 @@ void Equipement::ouvrirDialogArmure()
 {
 	QDialog dialog(this);
 
-	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QLabel message("La dernière ligne du tableau Armures contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
 	QPushButton oui("Oui",&dialog);
 	oui.setCheckable(true);
 	oui.setChecked(true);
@@ -211,7 +211,7 @@ void Equipement::ouvrirDialogObjet()
 {
 	QDialog dialog(this);
 
-	QLabel message("La dernière ligne du tableau contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
+	QLabel message("La dernière ligne du tableau Objets contient des données.\nVoulez vous vraiment la supprimer?",&dialog);
 	QPushButton oui("Oui",&dialog);
 	oui.setCheckable(true);
 	oui.setChecked(true);

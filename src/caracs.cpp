@@ -17,8 +17,8 @@ Caracs::Caracs()
 	lvlMax = 30;
 	
 	//Création des champs
-	c_nom = new QLineEdit();
-	c_joueur = new QLineEdit();
+	c_nom = new LineEdit("personnage");
+	c_joueur = new LineEdit("joueur");
 	c_race = new QComboBox();
 	c_alignement = new QComboBox();
 	c_divinite = new QComboBox();
@@ -83,52 +83,52 @@ Caracs::Caracs()
 	//Création des champs
 	c_for_score = new QSpinBox();
 		c_for_score->setRange(0,50);
-	c_for_mod = new QLineEdit();
+	c_for_mod = new LineEdit("Mod. de force");
 		c_for_mod->setReadOnly(true);
 		c_for_mod->setFixedWidth(50);
 		c_for_mod->setAlignment(Qt::AlignCenter);
-	c_for_score_tmp = new QLineEdit();
-	c_for_mod_tmp = new QLineEdit();
+	c_for_score_tmp = new LineEdit("Score de force temp.");
+	c_for_mod_tmp = new LineEdit("Mod. temp. de force");
 	c_dex_score = new QSpinBox();
 		c_dex_score->setRange(0,50);
-	c_dex_mod = new QLineEdit();
+	c_dex_mod = new LineEdit("Mod. de dex");
 		c_dex_mod->setReadOnly(true);
 		c_dex_mod->setFixedWidth(50);
 		c_dex_mod->setAlignment(Qt::AlignCenter);
-	c_dex_score_tmp = new QLineEdit();
-	c_dex_mod_tmp = new QLineEdit();
+	c_dex_score_tmp = new LineEdit("Score de dex temp.");
+	c_dex_mod_tmp = new LineEdit("Mod. temp. de dex");
 	c_con_score = new QSpinBox();
 		c_con_score->setRange(0,50);
-	c_con_mod = new QLineEdit();
+	c_con_mod = new LineEdit("Mod. de con");
 		c_con_mod->setReadOnly(true);
 		c_con_mod->setFixedWidth(50);
 		c_con_mod->setAlignment(Qt::AlignCenter);
-	c_con_score_tmp = new QLineEdit();
-	c_con_mod_tmp = new QLineEdit();
+	c_con_score_tmp = new LineEdit("Score temp. de con");
+	c_con_mod_tmp = new LineEdit("Mod. temp. de con");
 	c_int_score = new QSpinBox();
 		c_int_score->setRange(0,50);
-	c_int_mod = new QLineEdit();
+	c_int_mod = new LineEdit("Mod. d'int");
 		c_int_mod->setReadOnly(true);
 		c_int_mod->setFixedWidth(50);
 		c_int_mod->setAlignment(Qt::AlignCenter);
-	c_int_score_tmp = new QLineEdit();
-	c_int_mod_tmp = new QLineEdit();
+	c_int_score_tmp = new LineEdit("Score temp. d'int");
+	c_int_mod_tmp = new LineEdit("Mod. temp. d'int");
 	c_sag_score = new QSpinBox();
 		c_sag_score->setRange(0,50);
-	c_sag_mod = new QLineEdit();
+	c_sag_mod = new LineEdit("Mod. de sag");
 		c_sag_mod->setReadOnly(true);
 		c_sag_mod->setFixedWidth(50);
 		c_sag_mod->setAlignment(Qt::AlignCenter);
-	c_sag_score_tmp = new QLineEdit();
-	c_sag_mod_tmp = new QLineEdit();
+	c_sag_score_tmp = new LineEdit("Score temp. de sag");
+	c_sag_mod_tmp = new LineEdit("Mod. temp. de sag");
 	c_cha_score = new QSpinBox();
 		c_cha_score->setRange(0,50);
-	c_cha_mod = new QLineEdit();
+	c_cha_mod = new LineEdit("Mod. de cha");
 		c_cha_mod->setReadOnly(true);
 		c_cha_mod->setFixedWidth(50);
 		c_cha_mod->setAlignment(Qt::AlignCenter);
-	c_cha_score_tmp = new QLineEdit();
-	c_cha_mod_tmp = new QLineEdit();
+	c_cha_score_tmp = new LineEdit("Score temp. de cha");
+	c_cha_mod_tmp = new LineEdit("Mod. temp. de cha");
 	//Placement des champs dans le layout
 	layoutStats->addWidget(c_for_score,8,1);
 	layoutStats->addWidget(c_for_mod,8,2);
@@ -218,12 +218,12 @@ Caracs::Caracs()
 //Partie divers
 
 	//Création des champs
-	c_bba = new QLineEdit();
-	c_initiative = new QLineEdit();
-	c_vitesse = new QLineEdit();
-	c_res_mag = new QLineEdit();
-	c_reduc_deg = new QLineEdit();
-	c_lutte = new QLineEdit();
+	c_bba = new LineEdit("BBA");
+	c_initiative = new LineEdit("Initiative");
+	c_vitesse = new LineEdit("Vitesse");
+	c_res_mag = new LineEdit("Résist. magie");
+	c_reduc_deg = new LineEdit("Réduc. dégats");
+	c_lutte = new LineEdit("Lutte");
 	
 	//Placement des champs dans le layout
 	layoutDivers->addWidget(c_bba,0,1);
@@ -259,21 +259,21 @@ Caracs::Caracs()
 //Partie PV/CA
 
 	//Création des champs
-	c_tot_pv = new QLineEdit();
-	c_rest_pv = new QLineEdit();
-	c_non_letal = new QLineEdit();
-	c_attaque_contact_ca = new QLineEdit();
-	c_depourvu_ca = new QLineEdit();
-	c_tot_ca = new QLineEdit();
-	c_armure_ca = new QLineEdit();
-	c_bouclier_ca = new QLineEdit();
-	c_mod_dex_ca = new QLineEdit();
+	c_tot_pv = new LineEdit("PV");
+	c_rest_pv = new LineEdit("PV restants");
+	c_non_letal = new LineEdit("Dégats non létaux");
+	c_attaque_contact_ca = new LineEdit("CA contact");
+	c_depourvu_ca = new LineEdit("CA dépourvu");
+	c_tot_ca = new LineEdit("CA");
+	c_armure_ca = new LineEdit("Armure");
+	c_bouclier_ca = new LineEdit("Bouclier");
+	c_mod_dex_ca = new LineEdit("Mod. de dex");
 		c_mod_dex_ca->setReadOnly(true);
 		c_mod_dex_ca->setText("0");
-	c_mod_taille_ca = new QLineEdit();
-	c_arm_naturelle_ca = new QLineEdit();
-	c_mod_parade_ca = new QLineEdit();
-	c_mod_divers_ca = new QLineEdit();
+	c_mod_taille_ca = new LineEdit("Mod. de taille");
+	c_arm_naturelle_ca = new LineEdit("Armure naturelle");
+	c_mod_parade_ca = new LineEdit("Mod. parade");
+	c_mod_divers_ca = new LineEdit("Mod. divers CA");
 	
 	//Placement des champs dans le layout
 	layoutPVCA->addWidget(c_tot_pv,1,1);
@@ -339,30 +339,30 @@ Caracs::Caracs()
 //Partie sauvegardes
 
 	//Création des champs
-	c_tot_ref = new QLineEdit();
-	c_base_ref = new QLineEdit();
-	c_carac_ref = new QLineEdit();
+	c_tot_ref = new LineEdit();
+	c_base_ref = new LineEdit();
+	c_carac_ref = new LineEdit();
 		c_carac_ref->setReadOnly(true);
 		c_carac_ref->setText("0");
-	c_magie_ref = new QLineEdit();
-	c_divers_ref = new QLineEdit();
-	c_tmp_ref = new QLineEdit();
-	c_tot_vig = new QLineEdit();
-	c_base_vig = new QLineEdit();
-	c_carac_vig = new QLineEdit();
+	c_magie_ref = new LineEdit();
+	c_divers_ref = new LineEdit();
+	c_tmp_ref = new LineEdit();
+	c_tot_vig = new LineEdit();
+	c_base_vig = new LineEdit();
+	c_carac_vig = new LineEdit();
 		c_carac_vig->setReadOnly(true);
 		c_carac_vig->setText("0");
-	c_magie_vig = new QLineEdit();
-	c_divers_vig = new QLineEdit();
-	c_tmp_vig = new QLineEdit();
-	c_tot_vol = new QLineEdit();
-	c_base_vol = new QLineEdit();
-	c_carac_vol = new QLineEdit();
+	c_magie_vig = new LineEdit();
+	c_divers_vig = new LineEdit();
+	c_tmp_vig = new LineEdit();
+	c_tot_vol = new LineEdit();
+	c_base_vol = new LineEdit();
+	c_carac_vol = new LineEdit();
 		c_carac_vol->setReadOnly(true);
 		c_carac_vol->setText("0");
-	c_magie_vol = new QLineEdit();
-	c_divers_vol = new QLineEdit();
-	c_tmp_vol = new QLineEdit();
+	c_magie_vol = new LineEdit();
+	c_divers_vol = new LineEdit();
+	c_tmp_vol = new LineEdit();
 	
 	//Placement des champs dans le layout
 	layoutSauvegardes->addWidget(c_tot_ref,1,1);
@@ -458,6 +458,10 @@ Caracs::Caracs()
 	//Connection des slots
 	connect(boutonAjoutClasse,SIGNAL(clicked()),this,SLOT(ajoutClasse()));
 	connect(boutonRetraitClasse,SIGNAL(clicked()),this,SLOT(retraitClasse()));
+	
+	/* Modèle de connexion pour afficher des infos sur un LineEdit
+	connect(c_nom,SIGNAL(infosToDisplay(QString)),this,SLOT(transmissionAffichageInfos(QString)));
+	connect(c_nom,SIGNAL(finAffichageInfos()),this,SLOT(transmissionFinAffichageInfos()));*/
 }
 
 void Caracs::setClassList(QComboBox* comboBox)
@@ -618,4 +622,35 @@ void Caracs::calculModCha(int val)
 	c_cha_mod->setText(QString::number(newVal));
 	
 	emit modChaChanged(newVal);
+}
+
+void Caracs::transmissionAffichageInfos(QString cible)
+{
+	std::vector<QString> champs;
+	std::vector<int> vals;
+	
+	champs.push_back(cible);
+	
+	/*switch(cible)
+	{
+		récupération des valeurs à envoyer
+	}*/
+	
+	champs.push_back("ch1");
+	champs.push_back("ch2");
+	champs.push_back("ch3");
+	
+	vals.push_back(9);
+	vals.push_back(2);
+	vals.push_back(3);
+	vals.push_back(4);
+	
+	
+
+	emit infosToDisplay(champs, vals);
+}
+
+void Caracs::transmissionFinAffichageInfos()
+{
+	emit finAffichageInfos();
 }

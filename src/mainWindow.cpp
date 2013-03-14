@@ -38,17 +38,32 @@ MainWindow::MainWindow()
 	action->setChecked(true);
 	connect(action,SIGNAL(toggled(bool)),this,SLOT(afficherDiceRoller(bool)));
 	
+	action = menuOutils->addAction("Afficher les informations");
+	action->setCheckable(true);
+	action->setChecked(true);
+	connect(action,SIGNAL(toggled(bool)),this,SLOT(afficherInformations(bool)));
+	
 	this->setMenuBar(barreMenu);
 	
-	// DockWidget, lanceur de dés
-	dockWidget = new QDockWidget("Lanceur de dés", this);
+	// dockWidgetDes, lanceur de dés
+	dockWidgetDes = new QDockWidget("Lanceur de dés", this);
 	widgetDes = new DiceRoller();
 	
-	dockWidget->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
-	dockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-	dockWidget->setWidget(widgetDes);
+	dockWidgetDes->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
+	dockWidgetDes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	dockWidgetDes->setWidget(widgetDes);
 	
-	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
+	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidgetDes);
+	
+	// dockWidgetInfos, affiche des infos sur les différents champs
+	dockWidgetInfos = new QDockWidget("Informations", this);
+	widgetInfos = new InfoWidget();
+	
+	dockWidgetInfos->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
+	dockWidgetInfos->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	dockWidgetInfos->setWidget(widgetInfos);
+	
+	this->addDockWidget(Qt::LeftDockWidgetArea, dockWidgetInfos);
 	
 	// Connexion signaux/slots
 	connect(ongletCaracs,SIGNAL(modForChanged(int)),ongletCompetences,SLOT(modForChanged(int)));
@@ -57,12 +72,23 @@ MainWindow::MainWindow()
 	connect(ongletCaracs,SIGNAL(modIntChanged(int)),ongletCompetences,SLOT(modIntChanged(int)));
 	connect(ongletCaracs,SIGNAL(modSagChanged(int)),ongletCompetences,SLOT(modSagChanged(int)));
 	connect(ongletCaracs,SIGNAL(modChaChanged(int)),ongletCompetences,SLOT(modChaChanged(int)));
+	
+	connect(ongletCaracs,SIGNAL(infosToDisplay(std::vector<QString>, std::vector<int>)),widgetInfos,SLOT(afficheInfos(std::vector<QString>, std::vector<int>)));
+	connect(ongletCaracs,SIGNAL(finAffichageInfos()),widgetInfos,SLOT(finAffichageInfos()));
 }
 
 void MainWindow::afficherDiceRoller(bool state)
 {
 	if(state)
-		restoreDockWidget(dockWidget);
+		restoreDockWidget(dockWidgetDes);
 	else
-		removeDockWidget(dockWidget);
+		removeDockWidget(dockWidgetDes);
+}
+
+void MainWindow::afficherInformations(bool state)
+{
+	if(state)
+		restoreDockWidget(dockWidgetInfos);
+	else
+		removeDockWidget(dockWidgetInfos);
 }

@@ -20,7 +20,9 @@ HEADERS += headers/caracs.h \
            headers/mainWindow.h \
            headers/rolePlay.h \
            headers/sac.h \
-           headers/databaseManager.h
+           headers/databaseManager.h \
+           headers/lineEdit.h \
+           headers/infoWidget.h
 SOURCES += src/caracs.cpp \
            src/competences.cpp \
            src/diceRoller.cpp \
@@ -30,4 +32,6 @@ SOURCES += src/caracs.cpp \
            src/mainWindow.cpp \
            src/rolePlay.cpp \
            src/sac.cpp \
-           src/databaseManager.cpp
+           src/databaseManager.cpp \
+           src/lineEdit.cpp \
+           src/infoWidget.cpp
