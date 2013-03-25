@@ -10,6 +10,9 @@
 #include "rolePlay.h"
 #include "diceRoller.h"
 #include "infoWidget.h"
+#include "xmlManager.h"
+
+extern XmlManager xmlManager;
 
 class MainWindow : public QMainWindow
 {
@@ -44,8 +47,28 @@ private:
 public:
 	MainWindow();
 
+private:
+	void createTabs();
+	void createDiceRoller();
+	void createInfosDisplayer();
+
+signals:
+	void requestSave();
+	void newSheetRequested();
+
 private slots:
+	void createNewSheet();
+	void saveSheet();
+	void loadSheet();
+	void createEmptySheet();
 	void afficherDiceRoller(bool state);
 	void afficherInformations(bool state);
+	
+	void receiveCaracsSave();
+	void receiveEquipementSave();
+	void receiveBackpackSave();
+	void receiveCompetencesSave();
+	void receiveDonsSave();
+	void receiveRoleplaySave();
 };
 #endif //MAIN_WINDOW

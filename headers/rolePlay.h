@@ -2,6 +2,9 @@
 #define ROLEPLAY_H
 
 #include <QtGui>
+#include "xmlManager.h"
+
+extern XmlManager xmlManager;
 
 class RolePlay: public QWidget
 {
@@ -45,9 +48,13 @@ private:
 public:
 	RolePlay();
 	
+signals:	
+	void saveDone();
+	
 public slots:
 	void changeMode(const QString&);
 	void updateHtmlEditionMode();
+	void receiveSaveRequest();
 };
 
 #endif // ROLEPLAY_H

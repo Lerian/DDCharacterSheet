@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<character>
+   <caracteristiques>
+      <nomPersonnage value=""/>
+      <nomJoueur value=""/>
+      <listeClasses/>
+      <race value=""/>
+      <alignement value=""/>
+      <divinite value=""/>
+      <categorieTaille value=""/>
+      <for value="16"/>
+      <dex value="4"/>
+      <con value="10"/>
+      <int value="10"/>
+      <sag value="10"/>
+      <cha value="10"/>
+      <forTmp value="0"/>
+      <dexTmp value="0"/>
+      <conTmp value="0"/>
+      <intTmp value="0"/>
+      <sagTmp value="0"/>
+      <chaTmp value="0"/>
+      <bba value="0"/>
+      <initiative value="0"/>
+      <vd value="0"/>
+      <resistanceMagie value="0"/>
+      <reductionDegats value="0"/>
+      <lutte value="0"/>
+      <pvTotal value="0"/>
+      <pvRestants value="0"/>
+      <degatsNonLetaux value="0"/>
+      <caContact value="0"/>
+      <caDepourvu value="0"/>
+      <armure value="0"/>
+      <bouclier value="0"/>
+      <taille value="0"/>
+      <armureNaturelle value="0"/>
+      <parade value="0"/>
+      <divers value="0"/>
+      <baseReflexes value="0"/>
+      <modMagiqueReflexes value="0"/>
+      <modDiversReflexes value="0"/>
+      <modTmpReflexes value="0"/>
+      <baseVigueur value="0"/>
+      <modMagiqueVigueur value="0"/>
+      <modDiversVigueur value="0"/>
+      <modTmpVigueur value="0"/>
+      <baseVolonte value="0"/>
+      <modMagiqueVolonte value="0"/>
+      <modDiversVolonte value="0"/>
+      <modTmpVolonte value="0"/>
+   </caracteristiques>
+   <equipement>
+      <armes>
+         <ligne numero="0">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Toucher value=""/>
+            <Degats value=""/>
+            <Critique value=""/>
+            <Portee value=""/>
+            <Type value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="1">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Toucher value=""/>
+            <Degats value=""/>
+            <Critique value=""/>
+            <Portee value=""/>
+            <Type value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="2">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Toucher value=""/>
+            <Degats value=""/>
+            <Critique value=""/>
+            <Portee value=""/>
+            <Type value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="3">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Toucher value=""/>
+            <Degats value=""/>
+            <Critique value=""/>
+            <Portee value=""/>
+            <Type value=""/>
+            <Informations value=""/>
+         </ligne>
+      </armes>
+      <armures>
+         <ligne numero="0">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Emplacement value=""/>
+            <Objet value=""/>
+            <CA value=""/>
+            <DEXmax value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="1">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Emplacement value=""/>
+            <Objet value=""/>
+            <CA value=""/>
+            <DEXmax value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="2">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Emplacement value=""/>
+            <Objet value=""/>
+            <CA value=""/>
+            <DEXmax value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="3">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Equipe value=""/>
+            <Emplacement value=""/>
+            <Objet value=""/>
+            <CA value=""/>
+            <DEXmax value=""/>
+            <Informations value=""/>
+         </ligne>
+      </armures>
+      <objets>
+         <ligne numero="0">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Type value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="1">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Type value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="2">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Type value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="3">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Maudit value=""/>
+            <Type value=""/>
+            <Equipe value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+      </objets>
+   </equipement>
+   <backpack>
+      <chargeLegere value=""/>
+      <chargeIntermediaire value=""/>
+      <chargeLourde value=""/>
+      <surLaTete value=""/>
+      <decoller value=""/>
+      <pousser value=""/>
+      <pc value=""/>
+      <pa value=""/>
+      <po value=""/>
+      <pp value=""/>
+      <autre></autre>
+      <poidsTransporte value=""/>
+      <possessions>
+         <ligne numero="0">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="1">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="2">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="3">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="4">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="5">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="6">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="7">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="8">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="9">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="10">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="11">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="12">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="13">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="14">
+            <Poids value=""/>
+            <Valeur value=""/>
+            <Objet value=""/>
+            <Informations value=""/>
+         </ligne>
+      </possessions>
+   </backpack>
+   <competences>
+      <pointsADepenser value=""/>
+      <degerMaitriseMax inconnue="" deClasse=""/>
+      <liste>
+         <ligne numero="0">
+            <deClasse value="non"/>
+            <nom>Acrobaties</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="1">
+            <deClasse value="non"/>
+            <nom>Art de la magie</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="2">
+            <deClasse value="non"/>
+            <nom>Artisanat</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="3">
+            <deClasse value="non"/>
+            <nom>Bluff</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="4">
+            <deClasse value="non"/>
+            <nom>Concentration</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="5">
+            <deClasse value="non"/>
+            <nom>Connaissances</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="6">
+            <deClasse value="non"/>
+            <nom>Contrefaçon</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="7">
+            <deClasse value="non"/>
+            <nom>Crochetage</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="8">
+            <deClasse value="non"/>
+            <nom>Décryptage</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="9">
+            <deClasse value="non"/>
+            <nom>Déguisement</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="10">
+            <deClasse value="non"/>
+            <nom>Déplacement silencieux</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="11">
+            <deClasse value="non"/>
+            <nom>Désamorçage/Sabotage</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="12">
+            <deClasse value="non"/>
+            <nom>Détection</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="13">
+            <deClasse value="non"/>
+            <nom>Diplomatie</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="14">
+            <deClasse value="non"/>
+            <nom>Discrétion</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="15">
+            <deClasse value="non"/>
+            <nom>Dressage</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="16">
+            <deClasse value="non"/>
+            <nom>Equilibre</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+         <ligne numero="17">
+            <deClasse value="non"/>
+            <nom>Equitation</nom>
+            <degreMaitrise value=""/>
+            <modDivers value=""/>
+         </ligne>
+      </liste>
+   </competences>
+   <dons>
+      <raceClasses>
+         <ligne numero="0">
+            <donBonus value=""/>
+            <Effets value=""/>
+            <Informations value=""/>
+         </ligne>
+         <ligne numero="1">
+            <donBonus value=""/>
+            <Effets value=""/>
+            <Informations value=""/>
+         </ligne>
+      </raceClasses>
+      <normaux>
+         <ligne numero="0">
+            <Don value=""/>
+            <Prerequis value=""/>
+            <Effets value=""/>
+            <Notes value=""/>
+         </ligne>
+         <ligne numero="1">
+            <Don value=""/>
+            <Prerequis value=""/>
+            <Effets value=""/>
+            <Notes value=""/>
+         </ligne>
+      </normaux>
+   </dons>
+   <roleplay>
+      <taille value=""/>
+      <poids value=""/>
+      <age value=""/>
+      <sexe value=""/>
+      <yeux value=""/>
+      <cheveux value=""/>
+      <peau value=""/>
+      <background></background>
+   </roleplay>
+</character>

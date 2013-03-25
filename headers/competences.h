@@ -3,8 +3,10 @@
 
 #include <QtGui>
 #include "databaseManager.h"
+#include "xmlManager.h"
 
 extern DatabaseManager dataManager;
+extern XmlManager xmlManager;
 
 class Competences: public QWidget
 {
@@ -19,12 +21,15 @@ private:
 	
 	QVBoxLayout* layoutPrincipal;
 	QHBoxLayout* layoutHaut;
-	QTableWidgetItem* newItem;
+	QLabel* newLabel;
 
 public:
 	Competences();
 	void setListCompetences();
 	void changeCaracMod(QString carac, int newValue);
+
+signals:
+	void saveDone();
 
 public slots:
 	void modForChanged(int newValue);
@@ -33,6 +38,8 @@ public slots:
 	void modIntChanged(int newValue);
 	void modSagChanged(int newValue);
 	void modChaChanged(int newValue);
+	
+	void receiveSaveRequest();
 };
 
 #endif // COMPETENCES_H

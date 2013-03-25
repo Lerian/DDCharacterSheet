@@ -2,6 +2,9 @@
 #define DONS_H
 
 #include <QtGui>
+#include "xmlManager.h"
+
+extern XmlManager xmlManager;
 
 class Dons: public QWidget
 {
@@ -31,11 +34,16 @@ private:
 public:
 	Dons();
 
+signals:
+	void saveDone();
+
 private slots:
 	void ajoutLigneBonus();
 	void retraitLigneBonus();
 	void ajoutLigneDons();
-	void retraitLigneDons();	
+	void retraitLigneDons();
+	
+	void receiveSaveRequest();	
 };
 
 #endif // DONS_H

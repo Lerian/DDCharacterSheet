@@ -87,6 +87,9 @@ RolePlay::RolePlay()
 	// Connexion des signaux/slots
 	connect(mode,SIGNAL(currentIndexChanged(const QString &)),this,SLOT(changeMode(const QString&)));
 	connect(zoneBackgroundText,SIGNAL(textChanged()),this,SLOT(updateHtmlEditionMode()));
+	
+	connect(&xmlManager,SIGNAL(requestRoleplaySave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(roleplaySaved()));
 }
 
 void RolePlay::changeMode(const QString& text)
@@ -117,4 +120,57 @@ void RolePlay::updateHtmlEditionMode()
 		QString valeur = zoneBackgroundText->toPlainText();
 		zoneBackgroundHtml->setHtml(valeur);
 	}
+}
+
+void RolePlay::receiveSaveRequest()
+{
+	QDomElement elem;
+	QDomAttr a;
+	
+	elem = xmlManager.getRoleplay().firstChildElement("taille");
+	a = elem.attributeNode("value");
+	a.setValue(c_taille->text());
+	/* pour réparation: remplacer les 2 lignes de dessus par ça
+	if(elem.isNull())
+	{
+		elem = xmlManager.getDoc().createElement("taille");
+		elem.setAttribute("value",c_taille->text());
+		xmlManager.getRoleplay().appendChild(elem);
+	}
+	else
+	{
+		a = elem.attributeNode("value");
+		a.setValue(c_taille->text());
+	}*/
+	
+	elem = xmlManager.getRoleplay().firstChildElement("poids");
+	a = elem.attributeNode("value");
+	a.setValue(c_poids->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("age");
+	a = elem.attributeNode("value");
+	a.setValue(c_age->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("sexe");
+	a = elem.attributeNode("value");
+	a.setValue(c_sexe->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("yeux");
+	a = elem.attributeNode("value");
+	a.setValue(c_yeux->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("cheveux");
+	a = elem.attributeNode("value");
+	a.setValue(c_cheveux->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("peau");
+	a = elem.attributeNode("value");
+	a.setValue(c_peau->text());
+	
+	elem = xmlManager.getRoleplay().firstChildElement("background");
+	elem.removeChild(elem.firstChild());
+	QDomText valeur = xmlManager.getDoc().createTextNode(zoneBackgroundText->toPlainText());
+	elem.appendChild(valeur);
+	
+	emit saveDone();
 }

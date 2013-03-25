@@ -70,6 +70,9 @@ Dons::Dons()
 	connect(boutonRetraitBonus,SIGNAL(clicked()),this,SLOT(retraitLigneBonus()));
 	connect(boutonAjoutDon,SIGNAL(clicked()),this,SLOT(ajoutLigneDons()));
 	connect(boutonRetraitDon,SIGNAL(clicked()),this,SLOT(retraitLigneDons()));
+	
+	connect(&xmlManager,SIGNAL(requestDonsSave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(donsSaved()));
 }
 
 void Dons::ajoutLigneBonus()
@@ -90,4 +93,68 @@ void Dons::ajoutLigneDons()
 void Dons::retraitLigneDons()
 {
 	dons->setRowCount(dons->rowCount()-1);
+}
+
+void Dons::receiveSaveRequest()
+{
+	QDomElement elem;
+	QDomAttr a;
+	
+	elem = xmlManager.getDons().firstChildElement("raceClasses");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<bonus->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<bonus->columnCount();j++)
+		{
+			QDomElement elemLigne;
+		
+			if(bonus->horizontalHeaderItem(j)->text() == "Don/Bonus")
+				elemLigne = xmlManager.getDoc().createElement("donBonus");
+			else
+				elemLigne = xmlManager.getDoc().createElement(bonus->horizontalHeaderItem(j)->text());
+				
+			if(bonus->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",bonus->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+	
+	elem = xmlManager.getDons().firstChildElement("normaux");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<dons->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<dons->columnCount();j++)
+		{
+			QDomElement elemLigne;
+		
+			if(dons->horizontalHeaderItem(j)->text() == "Prérequis")
+				elemLigne = xmlManager.getDoc().createElement("Prerequis");
+			else
+				elemLigne = xmlManager.getDoc().createElement(dons->horizontalHeaderItem(j)->text());
+				
+			if(dons->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",dons->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+	
+	emit saveDone();
 }

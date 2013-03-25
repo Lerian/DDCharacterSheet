@@ -97,6 +97,9 @@ Equipement::Equipement()
 	connect(boutonRetraitArmure, SIGNAL(clicked()),this, SLOT(retraitLigneArmure()));
 	connect(boutonAjoutObjet, SIGNAL(clicked()),this, SLOT(ajoutLigneObjet()));
 	connect(boutonRetraitObjet, SIGNAL(clicked()),this, SLOT(retraitLigneObjet()));
+	
+	connect(&xmlManager,SIGNAL(requestEquipementSave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(equipementSaved()));
 }
 
 void Equipement::ajoutLigneArme()
@@ -244,4 +247,104 @@ void Equipement::retraitLigneObjet()
 		supprimerLigneObjet();
 	else
 		ouvrirDialogObjet();
+}
+
+void Equipement::receiveSaveRequest()
+{
+	QDomElement elem;
+	
+	elem = xmlManager.getEquipement().firstChildElement("armes");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<armes->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<armes->columnCount();j++)
+		{
+			QDomElement elemLigne;
+		
+			if(armes->horizontalHeaderItem(j)->text() == "Equipé")
+				elemLigne = xmlManager.getDoc().createElement("Equipe");
+			else
+			if(armes->horizontalHeaderItem(j)->text() == "Dégâts")
+				elemLigne = xmlManager.getDoc().createElement("Degats");
+			else
+			if(armes->horizontalHeaderItem(j)->text() == "Portée")
+				elemLigne = xmlManager.getDoc().createElement("Portee");
+			else
+				elemLigne = xmlManager.getDoc().createElement(armes->horizontalHeaderItem(j)->text());
+			
+			if(armes->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",armes->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+	
+	elem = xmlManager.getEquipement().firstChildElement("armures");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<armures->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<armures->columnCount();j++)
+		{
+			QDomElement elemLigne;
+		
+			if(armures->horizontalHeaderItem(j)->text() == "Equipé")
+				elemLigne = xmlManager.getDoc().createElement("Equipe");
+			else
+			if(armures->horizontalHeaderItem(j)->text() == "DEX max")
+				elemLigne = xmlManager.getDoc().createElement("DEXmax");
+			else
+				elemLigne = xmlManager.getDoc().createElement(armures->horizontalHeaderItem(j)->text());
+				
+			if(armures->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",armures->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+	
+	elem = xmlManager.getEquipement().firstChildElement("objets");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<objets->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<objets->columnCount();j++)
+		{
+			QDomElement elemLigne;
+		
+			if(objets->horizontalHeaderItem(j)->text() == "Equipé")
+				elemLigne = xmlManager.getDoc().createElement("Equipe");
+			else
+				elemLigne = xmlManager.getDoc().createElement(objets->horizontalHeaderItem(j)->text());
+				
+			if(objets->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",objets->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+
+	emit saveDone();
 }

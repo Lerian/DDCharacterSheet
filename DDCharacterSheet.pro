@@ -9,7 +9,8 @@ INCLUDEPATH += . headers
 MOC_DIR = ./mocFiles
 OBJECTS_DIR = ./bin
 QT += 	gui \
-		sql
+		sql \
+		xml
 
 # Input
 HEADERS += headers/caracs.h \
@@ -22,7 +23,8 @@ HEADERS += headers/caracs.h \
            headers/sac.h \
            headers/databaseManager.h \
            headers/lineEdit.h \
-           headers/infoWidget.h
+           headers/infoWidget.h \
+           headers/xmlManager.h
 SOURCES += src/caracs.cpp \
            src/competences.cpp \
            src/diceRoller.cpp \
@@ -34,4 +36,5 @@ SOURCES += src/caracs.cpp \
            src/sac.cpp \
            src/databaseManager.cpp \
            src/lineEdit.cpp \
-           src/infoWidget.cpp
+           src/infoWidget.cpp \
+           src/xmlManager.cpp

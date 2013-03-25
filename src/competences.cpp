@@ -50,6 +50,9 @@ Competences::Competences()
 	
 	//Resize des colonnes
 	table->resizeColumnsToContents();
+	
+	connect(&xmlManager,SIGNAL(requestCompetencesSave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(competencesSaved()));
 }
 
 void Competences::setListCompetences()
@@ -85,15 +88,16 @@ void Competences::setListCompetences()
 		if(listeInnee[i] == "O")
 			dynamic_cast<QCheckBox&>(*table->cellWidget(i,1)).setChecked(true);
 		//Compétence
-		newItem = new QTableWidgetItem(listeCompetences[i]);
-		table->setItem(i, 2, newItem);
+		newLabel = new QLabel(listeCompetences[i]);
+		table->setCellWidget(i, 2, newLabel);
 		//Stat associée
-		newItem = new QTableWidgetItem(listeStat[i]);
-		table->setItem(i, 3, newItem);
+		newLabel = new QLabel(listeStat[i]);
+		newLabel->setAlignment(Qt::AlignCenter);
+		table->setCellWidget(i, 3, newLabel);
 		//Label de modificateur de carac
-		QLabel * label = new QLabel("0");
-		label->setAlignment(Qt::AlignCenter);
-		table->setCellWidget(i,5,label);
+		newLabel = new QLabel("0");
+		newLabel->setAlignment(Qt::AlignCenter);
+		table->setCellWidget(i,5,newLabel);
 	}
 }
 
@@ -101,8 +105,8 @@ void Competences::changeCaracMod(QString carac, int newValue)
 {
 	for(int i = 0; i < table->rowCount(); i++)
 	{
-		if(table->item(i,3)->text() == carac)
-			dynamic_cast<QLabel&>(*table->cellWidget(i,5)).setText(QString::number(newValue));
+		if(dynamic_cast<QLabel *>(table->cellWidget(i,3))->text() == carac)
+			dynamic_cast<QLabel *>(table->cellWidget(i,5))->setText(QString::number(newValue));
 	}
 }
 
@@ -134,4 +138,67 @@ void Competences::modSagChanged(int newValue)
 void Competences::modChaChanged(int newValue)
 {
 	changeCaracMod(QString::fromStdString("CHA"),newValue);
+}
+
+void Competences::receiveSaveRequest()
+{
+	QDomElement elem;
+	QDomAttr a;
+	
+	elem = xmlManager.getCompetences().firstChildElement("pointsADepenser");
+	a = elem.attributeNode("value");
+	a.setValue(aDepenser->text());
+	
+	elem = xmlManager.getCompetences().firstChildElement("degreMaitriseMax");
+	a = elem.attributeNode("deClasse");
+	a.setValue(degreMaitriseMaxI->text());
+	a = elem.attributeNode("inconnue");
+	a.setValue(degreMaitriseMaxN->text());
+	
+	elem = xmlManager.getCompetences().firstChildElement("liste");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<table->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		QDomElement elemLigne;
+		
+		// compétence de classe ou non
+		elemLigne = xmlManager.getDoc().createElement("deClasse");
+		if(static_cast<QCheckBox*>(table->cellWidget(i,0))->isChecked())
+			elemLigne.setAttribute("value","oui");
+		else
+			elemLigne.setAttribute("value","non");
+		ligneTableau.appendChild(elemLigne);
+		
+		// nom de la compétence
+		elemLigne = xmlManager.getDoc().createElement("nom");
+		elemLigne.removeChild(elemLigne.firstChild());
+		QDomText valeur = xmlManager.getDoc().createTextNode(static_cast<QLabel*>(table->cellWidget(i,2))->text());
+		elemLigne.appendChild(valeur);
+		ligneTableau.appendChild(elemLigne);
+		
+		// degré de maitrise
+		elemLigne = xmlManager.getDoc().createElement("degreMaitrise");
+		if(table->item(i,6) == NULL)
+			elemLigne.setAttribute("value","");
+		else
+			elemLigne.setAttribute("value",table->item(i,6)->text());
+		ligneTableau.appendChild(elemLigne);
+		
+		// modificateurs divers
+		elemLigne = xmlManager.getDoc().createElement("modDivers");
+		if(table->item(i,7) == NULL)
+			elemLigne.setAttribute("value","");
+		else
+			elemLigne.setAttribute("value",table->item(i,7)->text());
+		ligneTableau.appendChild(elemLigne);
+	}
+	
+	emit saveDone();
 }

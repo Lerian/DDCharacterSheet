@@ -91,10 +91,93 @@ Sac::Sac()
 	layoutPrincipal->addWidget(ligne1);
 	layoutPrincipal->addLayout(layoutContenuSac);
 	
+	// Connection des signaux/slots
 	connect(boutonAjoutLigne, SIGNAL(clicked()), this, SLOT(ajoutLigne()));
+	
+	connect(&xmlManager,SIGNAL(requestBackpackSave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(backpackSaved()));
 }
 
 void Sac::ajoutLigne()
 {
 	tableSac->setRowCount(tableSac->rowCount()+1);
+}
+
+void Sac::receiveSaveRequest()
+{
+	QDomElement elem;
+	QDomAttr a;
+	
+	elem = xmlManager.getBackpack().firstChildElement("chargeLegere");
+	a = elem.attributeNode("value");
+	a.setValue(chargeLegere->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("chargeIntermediaire");
+	a = elem.attributeNode("value");
+	a.setValue(chargeIntermediaire->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("chargeLourde");
+	a = elem.attributeNode("value");
+	a.setValue(chargeLourde->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("surLaTete");
+	a = elem.attributeNode("value");
+	a.setValue(surLaTete->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("decoller");
+	a = elem.attributeNode("value");
+	a.setValue(decollerDuSol->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("pousser");
+	a = elem.attributeNode("value");
+	a.setValue(pousserTirer->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("pc");
+	a = elem.attributeNode("value");
+	a.setValue(pc->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("pa");
+	a = elem.attributeNode("value");
+	a.setValue(pa->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("po");
+	a = elem.attributeNode("value");
+	a.setValue(po->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("pp");
+	a = elem.attributeNode("value");
+	a.setValue(pp->text());
+	
+	elem = xmlManager.getBackpack().firstChildElement("poidsTransporte");
+	a = elem.attributeNode("value");
+	a.setValue(transporte->text());
+
+	elem = xmlManager.getBackpack().firstChildElement("autre");
+	elem.removeChild(elem.firstChild());
+	QDomText valeur = xmlManager.getDoc().createTextNode(autresRichesses->toPlainText());
+	elem.appendChild(valeur);
+	
+	elem = xmlManager.getBackpack().firstChildElement("possessions");
+	while(!elem.firstChild().isNull())										// Suppression des anciennes lignes
+	{
+		elem.removeChild(elem.firstChild());
+	}
+	for(int i=0;i<tableSac->rowCount();i++)
+	{
+		QDomElement ligneTableau = xmlManager.getDoc().createElement("ligne");
+		ligneTableau.setAttribute("numero",i);
+		elem.appendChild(ligneTableau);
+		
+		for(int j=0;j<tableSac->columnCount();j++)
+		{
+			QDomElement elemLigne = xmlManager.getDoc().createElement(tableSac->horizontalHeaderItem(j)->text());
+			if(tableSac->item(i,j) == NULL)
+				elemLigne.setAttribute("value","");
+			else
+				elemLigne.setAttribute("value",tableSac->item(i,j)->text());
+			ligneTableau.appendChild(elemLigne);
+		}
+	}
+	
+	emit saveDone();
 }

@@ -2,7 +2,9 @@
 #define EQUIPEMENT_H
 
 #include <QtGui>
-#include <iostream>
+#include "xmlManager.h"
+
+extern XmlManager xmlManager;
 
 class Equipement: public QWidget
 {
@@ -39,6 +41,9 @@ private:
 public:
 	Equipement();
 
+signals:
+	void saveDone();
+
 private slots:
 	void ajoutLigneArme();
 	void supprimerLigneArme();
@@ -54,6 +59,8 @@ private slots:
 	void supprimerLigneObjet();
 	void ouvrirDialogObjet();
 	void retraitLigneObjet();
+	
+	void receiveSaveRequest();
 };
 
 #endif // EQUIPEMENT_H

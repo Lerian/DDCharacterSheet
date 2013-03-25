@@ -6,12 +6,13 @@
 
 #include "databaseManager.h"
 #include "lineEdit.h"
+#include "xmlManager.h"
 
 extern DatabaseManager dataManager;
+extern XmlManager xmlManager;
 
 class Caracs: public QWidget
 {
-
 	Q_OBJECT
 
 private:
@@ -187,6 +188,8 @@ signals:
 	void infosToDisplay(std::vector<QString> champs, std::vector<int> vals);
 	void finAffichageInfos();
 
+	void saveDone();
+
 private slots:
 	void ajoutClasse();
 	void retraitClasse();
@@ -200,6 +203,8 @@ private slots:
 	
 	void transmissionAffichageInfos(QString cible);
 	void transmissionFinAffichageInfos();
+	
+	void receiveSaveRequest();
 };
 
 #endif // CARACS_H

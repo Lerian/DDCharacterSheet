@@ -111,7 +111,7 @@ void DatabaseManager::remplissageTables()
 		requete->exec("insert into competences values('Crochetage','DEX','N')");
 		requete->exec("insert into competences values('Décryptage','INT','N')");
 		requete->exec("insert into competences values('Déguisement','CHA','O')");
-		requete->exec("insert into competences values('Déplacement siencieux','DEX','O')");
+		requete->exec("insert into competences values('Déplacement silencieux','DEX','O')");
 		requete->exec("insert into competences values('Désamorçage/Sabotage','INT','N')");
 		requete->exec("insert into competences values('Détection','SAG','O')");
 		requete->exec("insert into competences values('Diplomatie','CHA','O')");

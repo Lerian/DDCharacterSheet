@@ -2,6 +2,9 @@
 #define SAC_H
 
 #include <QtGui>
+#include "xmlManager.h"
+
+extern XmlManager xmlManager;
 
 class Sac : public QWidget
 {
@@ -38,9 +41,13 @@ private:
 	
 public:
 	Sac();
+
+signals:
+	void saveDone();
 	
 private slots:
 	void ajoutLigne();
+	void receiveSaveRequest();
 };
 
 #endif // SAC_H

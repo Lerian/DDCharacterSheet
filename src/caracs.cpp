@@ -17,8 +17,8 @@ Caracs::Caracs()
 	lvlMax = 30;
 	
 	//Création des champs
-	c_nom = new LineEdit("personnage");
-	c_joueur = new LineEdit("joueur");
+	c_nom = new LineEdit("personnage", TEXTE);
+	c_joueur = new LineEdit("joueur", TEXTE);
 	c_race = new QComboBox();
 	c_alignement = new QComboBox();
 	c_divinite = new QComboBox();
@@ -459,6 +459,9 @@ Caracs::Caracs()
 	connect(boutonAjoutClasse,SIGNAL(clicked()),this,SLOT(ajoutClasse()));
 	connect(boutonRetraitClasse,SIGNAL(clicked()),this,SLOT(retraitClasse()));
 	
+	connect(&xmlManager,SIGNAL(requestCaracsSave()),this,SLOT(receiveSaveRequest()));
+	connect(this,SIGNAL(saveDone()),&xmlManager,SLOT(caracsSaved()));
+	
 	/* Modèle de connexion pour afficher des infos sur un LineEdit
 	connect(c_nom,SIGNAL(infosToDisplay(QString)),this,SLOT(transmissionAffichageInfos(QString)));
 	connect(c_nom,SIGNAL(finAffichageInfos()),this,SLOT(transmissionFinAffichageInfos()));*/
@@ -653,4 +656,186 @@ void Caracs::transmissionAffichageInfos(QString cible)
 void Caracs::transmissionFinAffichageInfos()
 {
 	emit finAffichageInfos();
+}
+
+void Caracs::receiveSaveRequest()
+{
+	QDomElement elem;
+	QDomAttr a;
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("nomPersonnage");
+	a = elem.attributeNode("value");
+	a.setValue(c_nom->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("nomJoueur");
+	a = elem.attributeNode("value");
+	a.setValue(c_joueur->text());
+		// liste des classes et combo boxes
+	
+
+	elem = xmlManager.getCaracteristiques().firstChildElement("for");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_for_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("dex");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_dex_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("con");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_con_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("int");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_int_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("sag");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_sag_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("cha");
+	a = elem.attributeNode("value");
+	a.setValue(QString::number(c_cha_score->value()));
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("forTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_for_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("dexTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_dex_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("conTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_con_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("intTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_int_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("sagTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_sag_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("chaTmp");
+	a = elem.attributeNode("value");
+	a.setValue(c_cha_score_tmp->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("bba");
+	a = elem.attributeNode("value");
+	a.setValue(c_bba->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("initiative");
+	a = elem.attributeNode("value");
+	a.setValue(c_initiative->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("vd");
+	a = elem.attributeNode("value");
+	a.setValue(c_vitesse->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("resistanceMagie");
+	a = elem.attributeNode("value");
+	a.setValue(c_res_mag->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("reductionDegats");
+	a = elem.attributeNode("value");
+	a.setValue(c_reduc_deg->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("lutte");
+	a = elem.attributeNode("value");
+	a.setValue(c_lutte->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("pvTotal");
+	a = elem.attributeNode("value");
+	a.setValue(c_tot_pv->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("pvRestants");
+	a = elem.attributeNode("value");
+	a.setValue(c_rest_pv->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("degatsNonLetaux");
+	a = elem.attributeNode("value");
+	a.setValue(c_non_letal->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("caContact");
+	a = elem.attributeNode("value");
+	a.setValue(c_attaque_contact_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("caDepourvu");
+	a = elem.attributeNode("value");
+	a.setValue(c_depourvu_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("armure");
+	a = elem.attributeNode("value");
+	a.setValue(c_armure_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("bouclier");
+	a = elem.attributeNode("value");
+	a.setValue(c_bouclier_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("taille");
+	a = elem.attributeNode("value");
+	a.setValue(c_mod_taille_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("armureNaturelle");
+	a = elem.attributeNode("value");
+	a.setValue(c_arm_naturelle_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("parade");
+	a = elem.attributeNode("value");
+	a.setValue(c_mod_parade_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("divers");
+	a = elem.attributeNode("value");
+	a.setValue(c_mod_divers_ca->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("baseReflexes");
+	a = elem.attributeNode("value");
+	a.setValue(c_base_ref->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modMagiqueReflexes");
+	a = elem.attributeNode("value");
+	a.setValue(c_magie_ref->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modDiversReflexes");
+	a = elem.attributeNode("value");
+	a.setValue(c_divers_ref->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modTmpReflexes");
+	a = elem.attributeNode("value");
+	a.setValue(c_tmp_ref->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("baseVigueur");
+	a = elem.attributeNode("value");
+	a.setValue(c_base_vig->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modMagiqueVigueur");
+	a = elem.attributeNode("value");
+	a.setValue(c_magie_vig->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modDiversVigueur");
+	a = elem.attributeNode("value");
+	a.setValue(c_divers_vig->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modTmpVigueur");
+	a = elem.attributeNode("value");
+	a.setValue(c_tmp_vig->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("baseVolonte");
+	a = elem.attributeNode("value");
+	a.setValue(c_base_vol->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modMagiqueVolonte");
+	a = elem.attributeNode("value");
+	a.setValue(c_magie_vol->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modDiversVolonte");
+	a = elem.attributeNode("value");
+	a.setValue(c_divers_vol->text());
+	
+	elem = xmlManager.getCaracteristiques().firstChildElement("modTmpVolonte");
+	a = elem.attributeNode("value");
+	a.setValue(c_tmp_vol->text());
+	
+	emit saveDone();
 }

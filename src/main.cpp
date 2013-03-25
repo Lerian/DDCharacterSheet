@@ -2,9 +2,13 @@
 
 #include "mainWindow.h"
 #include "databaseManager.h"
+#include "xmlManager.h"
 
 // Gestionnaire de base de données
 DatabaseManager dataManager;
+
+// Gestionnaire de document XML
+XmlManager xmlManager;
 
 int main(int argc, char** argv)
 {
